@@ -1,6 +1,6 @@
 <?php
    $g_pagetitle   = "Ultra Cool Programming Contest";
-   $g_timezone    = "America/New_York";
+   $g_timezone    = "America/Los_Angeles";
 
    // This configuration file sets up paths, files, and users.
    

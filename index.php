@@ -1,6 +1,6 @@
 <?php
-   include("config.php");
-   include("common.php");
+   include("./config.php");
+   include("./common.php");
 ?>
 
 <html>
