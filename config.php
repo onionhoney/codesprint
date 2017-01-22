@@ -6,14 +6,32 @@
    
    $g_problempath = "problems/";
    $g_submitpath  = "judge/";
-   $g_submitfile  = $g_submitpath . "submissions.txt";
-   $g_judgefile   = $g_submitpath . "judgements.txt";
-   $g_clarfile    = $g_submitpath . "clarifications.txt";
-   $g_creqfile    = $g_submitpath . "crequests.txt";
-   $g_teamfile    = $g_submitpath . "teams.txt";
-   $g_configfile  = $g_submitpath . "config.txt";
-   $g_iplogfile   = $g_submitpath . "iplog.txt";
-    
+
+   // Now, g_sessionsfile is the only config file in /judge
+   // We will read contest name and fileid from it, and load
+   // the appropriate resources from the fileid.
+   
+   $g_sessionsfile = $g_submitpath . "sessions.txt";
+
+   // read the current session's id
+   $tmp_fp = fopen($g_sessionsfile, "r");
+   $line = fgets($tmp_fp);
+   $g_contestid = trim($line);
+   fclose($tmp_fp);
+
+   $g_sessiondir = $g_submitpath . "sessions/";
+   $g_sessionpath = $g_sessiondir . $g_contestid . "/";
+
+   // from now on, all requests will be redirected to g_sessionpath
+
+   $g_submitfile  = $g_sessionpath . "submissions.txt";
+   $g_judgefile   = $g_sessionpath . "judgements.txt";
+   $g_clarfile    = $g_sessionpath . "clarifications.txt";
+   $g_creqfile    = $g_sessionpath . "crequests.txt";
+   $g_teamfile    = $g_sessionpath . "teams.txt";
+   $g_configfile  = $g_sessionpath . "config.txt";
+   $g_iplogfile   = $g_sessionpath . "iplog.txt";
+
    // whether or not to log contestant IP address (for security tracking)
    $g_logIPs   = true;
    

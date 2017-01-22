@@ -117,11 +117,43 @@
    }
 ?>
 
+
 <!-- ---------- CONTEST & PROBLEM SET ---------- -->
 <hr>
 <div align="center">
 
+<p><b><big>Session Switching</big></b></p>
+<?php>
+if ($fp = fopen($g_sessionfile, "r"))
+    {
+        flock($fp, LOCK_SH);
+        // read contest names and URLs
+        $contests = array();
+        while ($line=fgets($fp))
+            $contests[] = trim($line);
+        fclose($fp);
+
+        print "<select name=\"which_contest\">\n";
+        foreach($contests as $contest) {
+            $line = explode(";", $problems[$i-1]);
+            $name = htmlspecialchars(trim($line[0]));
+            $url  = trim($line[1]);
+            $sel  
+        }
+
+
+         for ($i = 1; $i <= 31; $i++) {
+            $sel = ($i == $cddate) ? "selected=\"selected\"" : "";
+            printf("            <option value=\"%02d\" $sel>%02d</option>\n", $i, $i);
+         }
+         print "         </select>\n";
+
+    }
+
+</php>
+
 <p><b><big>Contest & Problem Set</big></b></p>
+
 <?php
    if (isset($_SESSION["savedc"]))
    {

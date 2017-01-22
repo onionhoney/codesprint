@@ -1,4 +1,7 @@
-System;test;;System Test;
+System;test;0;System Test;
 Jeffrey;123456;1;Jeffrey Sun;Jeffrey
-Team ICPC;123456; 1;Team ICPC;Andy, Jerry, Konstantin
+TeamICPC;123456;1;Team ICPC;Andy, Jerry, Konstantin
 Stanford1;team1;1;Stanford Cardinal;
+Jerry;123456;0;;
+Andy;123456;0;;
+Justin;123456;0;;

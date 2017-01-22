@@ -1,9 +1,9 @@
-Ultra Cool Programming Contest
+Codesprint LA 2017
 judge@example.com
 16 January 2017
-11:00 + 05:00
-0;A;on
+12:00 + 500:00
+60;A;on
 Problem Set Title
-A+B Problem;                   problemA.pdf
-Beta;                          problemB.pdf
-Gamma;                         problemC.pdf
+A;                             A.txt
+B;                             B.txt
+C;                             C.txt
