@@ -56,7 +56,7 @@
          {         
       
             // create the team directory if necessary
-            $teamdir = $g_submitpath.$team;
+            $teamdir = $g_sessionpath.$team;
             if (!file_exists($teamdir)) 
             {
                mkdir($teamdir);

@@ -317,10 +317,10 @@ sub main {
     my $response;
     
     if ($EXT eq "c") {
-	$response = TestProgram ("gcc -lm -O2 -o $TMP_DIR/$PROBLEM $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",
+	$response = TestProgram ("gcc std=gnu11 -lm -O2 -o $TMP_DIR/$PROBLEM $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",
 				 "$TMP_DIR/$PROBLEM < $JUDGE_IN > $TMP_DIR/$PROBLEM.out");
     } elsif ($EXT eq "cc") {
-	$response = TestProgram ("g++ -lm -O2 -o $TMP_DIR/$PROBLEM $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",
+	$response = TestProgram ("g++ -std=gnu++14 -lm -O2 -o $TMP_DIR/$PROBLEM $TMP_DIR/$PROBLEM.$EXT 2> /dev/null", 
 				 "$TMP_DIR/$PROBLEM < $JUDGE_IN > $TMP_DIR/$PROBLEM.out");
     } elsif ($EXT eq "java") {
 	$response = TestProgram ("javac $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",

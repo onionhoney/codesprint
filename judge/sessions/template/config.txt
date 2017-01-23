@@ -1,0 +1,7 @@
+Practice Contest
+judge@example.com
+16 January 2017
+12:00 + 3:00
+30;A;on
+Problem Set Title
+A;                             A.txt

@@ -1,7 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL^E_NOTICE);
+
    $g_pagetitle   = "Ultra Cool Programming Contest";
    $g_timezone    = "America/Los_Angeles";
 
+   // if (!function_exists('setGlobalPaths')) {
+   // function setGlobalPaths() {
    // This configuration file sets up paths, files, and users.
    
    $g_problempath = "problems/";
@@ -15,12 +21,14 @@
 
    // read the current session's id
    $tmp_fp = fopen($g_sessionsfile, "r");
+   flock($tmp_fp, LOCK_EX);
    $line = fgets($tmp_fp);
    $g_contestid = trim($line);
    fclose($tmp_fp);
 
    $g_sessiondir = $g_submitpath . "sessions/";
    $g_sessionpath = $g_sessiondir . $g_contestid . "/";
+   $g_problempath = $g_problempath . $g_contestid . "/";
 
    // from now on, all requests will be redirected to g_sessionpath
 
@@ -31,6 +39,8 @@
    $g_teamfile    = $g_sessionpath . "teams.txt";
    $g_configfile  = $g_sessionpath . "config.txt";
    $g_iplogfile   = $g_sessionpath . "iplog.txt";
+   // } }
+   // setGlobalPaths();
 
    // whether or not to log contestant IP address (for security tracking)
    $g_logIPs   = true;

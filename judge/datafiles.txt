@@ -1,4 +1,0 @@
-A data/A.in			data/A.out			2
-B data/B.in			data/B.out			2
-C data/C.in			data/C.out			5
-

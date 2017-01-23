@@ -1,0 +1,13 @@
+How to create new sessions:
+
+Edit /judge/sessions.txt by adding a line describing your contest's name and id. 
+
+The system will look for a directory named by this unique id under /judge/sessions/.
+Notice that all config files and test cases are supposed to be in /judge/sessions/CONTEST_ID instead of /judge. 
+
+Next, create the directory /judge/sessions/CONTEST_ID by duplicating the folder
+/judge/sessions/template/, and run sessions_setup there once. 
+
+Finally, add contest problems to /problems/CONTEST_ID/.
+
+Now you are free to switch and manage sessions in judge/jconfig.php.

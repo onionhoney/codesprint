@@ -1,9 +1,0 @@
-Codesprint LA 2017
-judge@example.com
-16 January 2017
-12:00 + 500:00
-60;A;on
-Problem Set Title
-A;                             A.txt
-B;                             B.txt
-C;                             C.txt

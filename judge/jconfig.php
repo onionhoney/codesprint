@@ -85,11 +85,22 @@
          $_SESSION["savedt"] = True;
          header("Location: jconfig.php");
          exit("Saved team information.");
-      }
+        }
       else
       {
          $_SESSION["error"] = "<center><p><b><font color=\"red\">Unable to save teams!</font></b></p></center>\n";
       }
+   }
+
+   // NEW: SWITCH CONTEST
+   if ($_POST["switch"])
+   {
+       $arr = file($g_sessionsfile);
+       $arr[0] = $_POST["which_contest"]."\n";
+       file_put_contents($g_sessionsfile, implode($arr));
+       $_SESSION["saveds"] = True;
+       header("Location: jconfig.php");
+       exit("Switched session.");
    }
 ?>
 
@@ -123,34 +134,49 @@
 <div align="center">
 
 <p><b><big>Session Switching</big></b></p>
-<?php>
-if ($fp = fopen($g_sessionfile, "r"))
+
+<?php
+   if (isset($_SESSION["saveds"]))
+   {
+      print "<p><font color=\"green\">Session successfully switched.</font></p>\n";
+      unset($_SESSION["saveds"]);
+   }
+?>
+
+<?php
+if ($fp = fopen($g_sessionsfile, "r"))
     {
         flock($fp, LOCK_SH);
         // read contest names and URLs
         $contests = array();
+        $currname = fgets($fp);
         while ($line=fgets($fp))
             $contests[] = trim($line);
         fclose($fp);
 
-        print "<select name=\"which_contest\">\n";
-        foreach($contests as $contest) {
-            $line = explode(";", $problems[$i-1]);
+
+print <<<END
+    <form name="switch" method="post" action="jconfig.php" ">
+       <select name="which_contest">
+
+END;
+
+        foreach($contests as $idx => $contest) {
+            $line = explode(";", $contest);
             $name = htmlspecialchars(trim($line[0]));
             $url  = trim($line[1]);
-            $sel  
+            $sel = ($url == trim($currname)) ? "selected=\"selected\"" : "";
+            printf("          <option value=\"%s\" $sel>%s</option>\n", $url, $name);
         }
-
-
-         for ($i = 1; $i <= 31; $i++) {
-            $sel = ($i == $cddate) ? "selected=\"selected\"" : "";
-            printf("            <option value=\"%02d\" $sel>%02d</option>\n", $i, $i);
-         }
-         print "         </select>\n";
+print <<<END
+       </select>
+       <p><input type="submit" name="switch" value="Switch to Session"/></p>
+    </form>
+END;
 
     }
 
-</php>
+?>
 
 <p><b><big>Contest & Problem Set</big></b></p>
 
