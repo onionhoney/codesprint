@@ -26,14 +26,29 @@
                $name = stripcslashes($_POST["problem".$i]);
                $url = $_POST["problem".$i."-u"];
                $filename = $_FILES["problem".$i."-f"]["name"];
+               $inputname = $_FILES["input".$i."-f"]["name"];
+               $outputname = $_FILES["output".$i."-f"]["name"];
                fputs($fp, sprintf("%-30s %s\n", $name . ";", $url));
                
                // if a 
+               
                if ($url && $filename)
                {
                   $tempname = $_FILES["problem".$i."-f"]["tmp_name"];
                   if (!move_uploaded_file($tempname, $g_problempath . $url))
-                     $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $filename.</font></p></center>\n";
+                     $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $filename in $g_problempath$url. </font></p></center>\n";
+               }
+               if ($url && $inputname)
+               {
+                   $tempname = $_FILES["input".$i."-f"]["tmp_name"];
+                   if (!move_uploaded_file($tempname, $g_testcasepath . $inputname))
+                     $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $inputname in $g_testcasepath$inputname. </font></p></center>\n";
+               }
+               if ($url && $outputname)
+               {
+                   $tempname = $_FILES["output".$i."-f"]["tmp_name"];
+                   if (!move_uploaded_file($tempname, $g_testcasepath . $outputname))
+                     $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $outputname in $g_testcasepath$outputname. </font></p></center>\n";
                }
             }
          
@@ -312,7 +327,9 @@ END;
    <th></th>
    <th>Problem Name</th>
    <th>URL</th>
-   <th>File Upload</th>
+   <th>Problem File Upload</th>
+   <th>Input (<i>filename</i>.in) </th>
+   <th>Answer (<i>filename</i>.out) </th>
 </tr>
 
 <?php
@@ -340,6 +357,8 @@ END;
       print "   <td align=\"center\"><input type=\"text\" name=\"problem$i\" size=\"30\" value=\"$name\" /></td>\n";
       print "   <td align=\"center\"><input type=\"text\" name=\"problem$i-u\" size=\"12\" value=\"$url\" /></td>\n";
       print "   <td><input type=\"file\" name=\"problem$i-f\" /></td>\n";
+      print "   <td><input type=\"file\" name=\"input$i-f\" /></td>\n";
+      print "   <td><input type=\"file\" name=\"output$i-f\" /></td>\n";
       print "</tr>\n";
    }
 ?>

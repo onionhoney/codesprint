@@ -32,6 +32,7 @@ error_reporting(E_ALL^E_NOTICE);
 
    // from now on, all requests will be redirected to g_sessionpath
 
+   $g_testcasepath = $g_sessionpath . "data/";
    $g_submitfile  = $g_sessionpath . "submissions.txt";
    $g_judgefile   = $g_sessionpath . "judgements.txt";
    $g_clarfile    = $g_sessionpath . "clarifications.txt";

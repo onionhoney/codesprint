@@ -13,7 +13,8 @@
 
 <div align="center">
 <h1><?=$g_pagetitle?></h1>
-<h2><i>Online Training Arena</i></h2>
+<!--<h2><i>Online Training Arena</i></h2> -->
+<h2><i> Hosted by ACM-ICPC </i></h2>
 <p><img src="images/icpc_logo.png"></p>
 </div>
 
@@ -45,11 +46,35 @@
 
       print "<table border=\"0\" width=\"320\">\n";
       print "<tr><th>$contest->cname</th></tr>\n";
-      
+      if ( ! session_id() ) @ session_start();
+
+      if ($contest->tnow >= $contest->tstart) {
+          $_SESSION["contest_starts"] = 1;
+      }
+      else {
+          $_SESSION["contest_starts"] = 0;
+      }
+
       foreach ($contest->pletters as $letter)
       {
+         //$link = $g_problempath."all.php";
          $link = $contest->problemlonglink($letter);
-         print "<tr><td>$link</td></tr>\n";
+         $name = $contest->pnames[$letter];
+         if ($_SESSION["contest_starts"] == 1) {
+print <<<END
+    <tr><td> 
+        <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
+        <a href="view.php?problem=$letter" target="_blank" style="text-align:center; display:block" >
+            Problem $letter
+        </a>
+    </td></tr>
+END;
+         }
+         else {
+print <<<END
+    <tr><td> Problem $letter </td></tr>
+END;
+         }
       }
       print "</table>\n";
       
