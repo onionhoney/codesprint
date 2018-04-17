@@ -1,0 +1,40 @@
+## Relay 2A. The Sloppy Algorithm
+
+It is New Year in Middle Land, and the software company Aripay decides to reward its users when they upload photos of a Middlenese character that means "good fortune". However, rumor has it that the system is so sloppy any similar character scanned will be taken as correct. As an analyst (who knows how the algorithm works), you need to find out the probability that a random photo is accepted. 
+
+Here's the sloppy algorithm: A photo is represented as an N*N grid of binary 1s and 0s. The probability assumption is that each of the $ 2^{N \times N} $ possible binary representation is equally likely as any other. A grid is considered valid exactly when the number of 1s in each horizontal line is greater than or equal to M, for some given M $ \le $ N. 
+
+```
+Examples of photos when N = 4, M = 2:
+0110
+0011
+0111
+0101 would be a valid photo, because there are at least two 1's in every row.
+----
+0110
+0001
+0111
+0101 would be an invalid photo, because the second row has only one 1. 
+```
+
+### Input
+
+Let's use W to denote the initial input, which can be found at the bottom of the page. Then  $ N = (W \mod 3) + 5,  M = (W\mod 2) + 2 $
+
+### Output
+
+Output the first three decimal digits as an integer $ k = \lfloor answer * 1000 \rfloor ​$, e.g. if the answer is 0.<u>031</u>45 then k should be 31. It is guaranteed that k will be greater than 0. <u>Please pass this answer to the next person.</u>
+
+```
+Sample input:
+W = 4
+Sample output:
+890
+```
+
+### Initial Input
+
+```
+395
+```
+

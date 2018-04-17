@@ -1,0 +1,45 @@
+## Problem D - Gotta Catch 'Em All!
+
+Misty is returning home for the holidays and needs to walk to a train station. Luckily, there are several train stations in her city and she can choose to go to any of them. 
+
+Recently, Misty has been enamoured with the mobile game Pokemon Go! She wishes to pick a route to a train station in a way such that she will be able to stop by the most Pokestops. 
+
+Misty’s city is modeled as a rooted tree with $n$ nodes $(1 \leq n \leq 10000)$, with each node representing a location and each edge representing a walkable path between two locations. Some number $p$ $(1 \leq p \leq n)$ of the nodes are also Pokestops, and every leaf node of the tree is a train station (which can also be a Pokestop). Misty starts at the root of the tree (which also can be a Pokestop) and must travel to one of the train stations without traveling through the same path multiple times.
+
+Help Misty determine the maximum number of Pokestops she can stop by on the way to one of the train stations!
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases. 
+
+The first line of each test case will contain three integers, $n$, $p$, and $e$ $(1 \leq n \leq 10000; 1 \leq p \leq n; e = n - 1)$, the number of nodes, Pokestops, and edges in Misty’s city respectively. All nodes are numbered from $0$ to $n - 1$, where $0$ is the root of the tree (and Misty’s starting location).
+
+The second line of each test case will contain $p$ integers $s_1$, $s_2$, $s_3$, ... , $s_p$ $(0 \leq s_i < n)$, where each $s_i$ is the number of a node that is a Pokestop.
+
+The next $e$ lines of input of each test case will each contain two integers, $a$ and $b$ $(0 \leq a,b < n)$, where each line designates a bidirectional path connecting the two nodes numbered $a$ and $b$.
+
+### Output
+
+Output a single integer in a line for each test case, the maximum number of Pokestops Misty can stop by on the way to one of the train stations in her city, without backtracking.
+
+### Sample Input
+
+```
+2
+5 3 4
+1 2 4
+0 1
+0 2
+2 4
+2 3
+2 1 1
+0
+0 1
+```
+
+### Sample Output
+
+```
+2
+1
+```

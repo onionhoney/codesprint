@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL^E_NOTICE);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL^E_NOTICE);
 
    $g_pagetitle   = "Ultra Cool Programming Contest";
    $g_timezone    = "America/Los_Angeles";
@@ -40,7 +40,12 @@ error_reporting(E_ALL^E_NOTICE);
    $g_teamfile    = $g_sessionpath . "teams.txt";
    $g_configfile  = $g_sessionpath . "config.txt";
    $g_iplogfile   = $g_sessionpath . "iplog.txt";
-   // } }
+   $g_pvfile = $g_sessionpath . "pv.txt";
+   $g_pv = array();
+   $tmp_pv = array_map('intval', file($g_pvfile));
+   foreach ($tmp_pv as $idx => $pv) {
+       $g_pv[chr(ord(A) + $idx)] = $pv;
+   }
    // setGlobalPaths();
 
    // whether or not to log contestant IP address (for security tracking)
@@ -74,7 +79,7 @@ error_reporting(E_ALL^E_NOTICE);
    );
    
    // number of teams to show on the judge configuration screen
-   $g_teamtablesize = 64;
+   $g_teamtablesize = 100;
    
    // The following array maps teams to passwords!
    $g_teams = array();

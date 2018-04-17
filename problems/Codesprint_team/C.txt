@@ -1,0 +1,41 @@
+## Problem C - Midnight Driving
+
+Traffic in Los Angeles can be pretty bad during the day, so Sarah decided to go for a joyride down Wilshire Blvd in the middle of the night when no one else is on the road. 
+
+Wilshire Blvd is a straight, $d$ meters long $(100 \leq d \leq 10^6)$ road with $n$ $(1 \leq n \leq 1000)$ traffic lights at different integer meter positions along the road. These traffic lights are special - they never turn yellow, but alternate between green and red with a fixed integer period. This period may be different for different traffic lights. For example, a traffic light with a period of $10$ seconds will stay green for $10$ seconds, turn red for $10$ seconds, turn back to green for $10$ seconds, and so on. There also might be multiple traffic lights in the same place - all of them must be green for Sarah to proceed.
+
+As the city traffic manager, you know the exact positions and periods of each of the traffic lights on Wilshire Blvd. You also know that Wilshire Blvd has a speed limit of $r$ $(10 \leq r \leq 100)$ meters per second. Sasha starts at the very beginning (position $0$) of Wilshire Blvd, and initially all of the traffic lights just switched to green.
+
+Help Sarah find the fastest constant integer speed in meters per second (but still at or below the speed limit) she can drive down Wilshire so that she will not need to stop at any red light and can drive through the entire road without stopping! If this is not possible, output $-1$.
+
+Note: Sarah does not have to stop at traffic light if she reaches there the instant it changes from red to green, but she has to stop if she arrives the instant it changes from green to red.
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases. 
+
+The first line of each test case will contain three integers $d$, $n$, and $r$ $(1000 \leq d \leq 10^6; 1 \leq n \leq 1000; 10 \leq r \leq 100)$, the length of Wilshire Blvd in meters, the number of traffic lights, and the speed limit in meters per second, respectively.
+
+Each of the next $n$ lines for each test case will contain two integers $l_i$ and $p_i$ $(1 \leq l_i < d; 1 \leq p_i \leq 10^5)$, the location (in meters) of the $i$th traffic light and its period in seconds, respectively.  
+
+### Output
+
+Output one line containing an integer for each test case, the fastest speed in meters per second Sarah can travel so that she will not have to stop at any red light. This speed should not be faster than the speed limit for that test case. If this is not possible, output $-1$ for that test case.
+
+### Sample Input
+
+```
+2
+1000 1 70
+500 4
+1000 2 100
+300 2
+800 6
+```
+
+### Sample Output
+
+```
+62
+66
+```

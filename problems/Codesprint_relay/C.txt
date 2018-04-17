@@ -1,0 +1,26 @@
+## Relay 1C
+
+Janey is a linguistic major and learns many alphabet systems in her spare time. She has a peculiar way of measuring her fondness of an alphabet: the number of possible distinct strings of length $10$ that do not have consecutive characters.
+
+The input will only contain one number $n$ $(0 \leq n \leq 10000)$ denoting the number of characters in the ith alphabet system. Since Janey’s fondness of a language can be very large, output the fondness mod $1000000007$.
+
+
+### Sample Input
+
+```
+10
+```
+
+### Sample Output
+
+```
+874204869
+```
+
+### Final Input
+
+```
+{TNYWG}
+```
+
+Turn in your final output on a small piece of paper along with your team name.

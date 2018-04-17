@@ -1,0 +1,31 @@
+## Relay 1A
+
+Billy is currently number the pages of his notebook from page $a$ to page $b$ $(1 \leq a < b \leq 10000)$. How many times will he be writing his most-used digit?
+
+### Input
+
+Two integers, $a$ and $b$ $(1 \leq a < b \leq 10000)$ denoting the beginning and ending pages of the range Billy decides to number.
+
+### Output
+
+Output one integer, the number of times Billy will be writing his most-used digit.
+
+### Sample Input
+
+```
+1 11
+```
+
+### Sample Output
+
+```
+4
+```
+
+### Final Input
+
+```
+56 7495
+```
+
+Pass the final output to the next person.

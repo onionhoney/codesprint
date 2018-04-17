@@ -1,0 +1,10 @@
+----------------------------------------
+1485639145
+FineTangerine
+C - Midnight Driving
+
+{
+The question says "Wilshire Blvd is a straight, d meters long  road with n traffic lights at different integer mile positions along the road. "
+
+Seriously? Need to do unit conversion between meter and mile?
+}

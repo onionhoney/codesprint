@@ -1,0 +1,35 @@
+## Relay 2B. The Sleeping Beauty
+
+Once upon a time, there was a princess named Sarah who loved to sleep. In fact, she would stay on the bed all day, wallowing around even when she's wide awake. One day a terrific idea struck her — to fill her very large bedroom with all the beds she can find! 
+
+It is known that her bedroom is a long rectangle with width 3 and depth $k (k \ge 3)$, with a door opening on one narrow side, and a window on the other. The beds in her kingdom come in two shapes, 1\*3 and 2\*3, each with infinitely many supplies. However, princess Sarah doesn't want to get bored, so she decides to use a different bed layout each day. Two layouts are considered the same if they are indistinguishable from another when observed from the window to the door. 
+
+Help her calculate the number of ways to completely fill her bedroom. Notice that you **don't** necessarily have to use all types of bed. 
+
+### Input
+
+Let's use W to denote the number you get from the last problem. Then $ k = (W \mod 10) + 10 $.
+
+### Output
+
+The number of ways to completely fill Sarah's bedroom by the requirements, modulo 10007.
+
+It is guaranteed that the answers are within 10^9. Therefore there's no need to worry about overflow while you calculate.
+
+```
+Sample input 1: 
+k = 3 (the actual input would be at least 10 though)
+Sample output 1:
+6
+Explanation for sample 1: 
+|x|x|x| |x|x|x| |x|x|y| |x|y|y| |x|x|x| |x|y|z|
+|y|y|y| |x|x|x| |x|x|y| |x|y|y| |y|y|y| |x|y|z|
+|y|y|y| |y|y|y| |x|x|y| |x|y|y| |z|z|z| |x|y|z| 
+Here are all the six possible layouts. Each letter denotes a bed. 
+----------------
+Sample input 2:
+k = 5
+Sample output 2:
+23
+```
+

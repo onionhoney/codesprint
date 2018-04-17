@@ -1,0 +1,45 @@
+## Problem B - Hallosweeper
+
+Minesweeper is played on an rectangular board, and each square either has a mine, or a number telling you how many mines are around that square. An example of a possible set up for a $3 \times 3$ board is below.
+
+```
+|x|x|1|
+|2|2|1|
+|0|0|0|
+```
+
+It's the day before Halloween - Lily is setting up a physical minesweeper game (Hallosweeper) for one of her friends, except instead of mines, she's using toothpaste, and instead of numbers, she's using candy. If a square has the number $5$, it should have $5$ pieces of candy on it.
+
+Lily is setting up an $m \times n$ board $(1 \leq m,n \leq 1000)$. Since she has $k$ bottles of toothpaste $(0 \leq k \leq 10000)$, she will put $k$ mines, with the $i$th mine at position $(x\_i, y\_i)$. How many pieces of candy does Lily need to properly set up her game of Hallosweeper?
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases. 
+
+The first line of each test case will contain two integers $m$ and $n$ $(1 \leq m,n \leq 1000)$, the number of rows and columns of the board respectively.
+
+The second line of each test case will contain an integer $k$ $(0 \leq k \leq 10000)$, the number of bottles of toothpaste to be placed.
+
+The next $k$ lines will contain the integer coordinates $(x, y)$ $(1 \leq x \leq m; 1 \leq y \leq n)$ of each mine. No two mines will have the same position.
+
+### Output
+
+Output a line containing a single number for each test case, the number of pieces of candy Lily needs to set up her game of Hallosweeper.
+
+### Sample Input
+
+```
+1
+3 3
+2
+1 1
+1 2
+```
+
+### Sample Output
+
+```
+6
+```
+
+Note: The above sample input/output corresponds with the example given in the text of the problem.

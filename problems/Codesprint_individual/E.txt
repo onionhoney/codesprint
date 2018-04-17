@@ -1,0 +1,36 @@
+## Problem E - Steps of Death
+
+Climbing the Rieber Death Stairs every day to get back to his dorm at UCLA is getting really tedious for Mark. He decided today to change things up a bit.
+
+The Death Stairs have $n$ $(1 \leq n \leq 100)$ sections of consecutive steps, with $s_i$ $(1 \leq s_i \leq 10^6)$ steps in the $i$th section and each section separated from the next by a short flat walkway. Mark has a long stride, and can take $1$, $2$, or $3$ steps at a time up the stairs. However, he has to stop between each section of the stairs to walk forward on the flat portion before starting to climb the next section. This means that for example, if Mark has two more steps to climb in a section, he can only choose to climb $1$ or $2$ steps, but not $3$ steps.
+
+Given the layout of the Reiber Death Stairs, Mark would like you to help him calculate the number of ways he can climb to the top of the stairs. Since this number can be very big, output it mod $10007$.
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100) $, the number of test cases.
+
+The first line of each test case will contain the single integer $n$ $(1 \leq n \leq 100)$, the number of sections of the staircase.
+
+The second line of each test case will contain $n$ integers, with the $i$th integer $s_i$ $(1 \leq s_i \leq 10^6)$ signifying the number of steps in section $i$ of the staircase.
+
+### Output
+
+Output one line per test case containing a single integer, the number of ways to climb the staircase mod $10007$.
+
+### Sample Input
+
+```
+2
+4
+1 3 3 2
+1
+2
+```
+
+### Sample Output
+
+```
+32
+2
+```

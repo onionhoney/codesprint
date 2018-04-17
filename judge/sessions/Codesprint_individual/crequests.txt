@@ -1,0 +1,177 @@
+----------------------------------------
+1485627884
+xu.jason.jx@gmail.com
+A - Virtual Gardening
+
+{
+I don't really understand how the sample input follows the instructions. It says there are 2 test cases; that means the next 2 lines (3 5 and 5 1) are in format p n? But then there aren't enough lines after that.
+}
+----------------------------------------
+1485628174
+jonq1226@gmailcom
+A - Virtual Gardening
+
+{
+do i have to get the line as a string and then convert the chars to be integers?
+}
+----------------------------------------
+1485628622
+jonq1226@gmailcom
+A - Virtual Gardening
+
+{
+What is the significance of a test case input of 2 versus test case input of 1? I am not sure what test cases mean.
+}
+----------------------------------------
+1485628778
+kevintat154@gmailcom
+A - Virtual Gardening
+
+{
+Is the input supposed to be a vector
+}
+----------------------------------------
+1485628852
+shahmitansh@gmailcom
+A - Virtual Gardening
+
+{
+Can we accept input of each number separately? Or do we have to accept all of the test case data at once?
+}
+----------------------------------------
+1485628874
+chenchenstudent@gmailcom
+B - Innocuous Redistricting
+
+{
+in the second input, the second input is out of range of rectangle
+}
+----------------------------------------
+1485629070
+etank7000@gmailcom
+B - Innocuous Redistricting
+
+{
+(type your 2
+6 4
+3
+1 0 1 4
+0 2 6 2
+4 0 4 4
+2 3
+1
+0 1 3 1
+
+For the last 3 lines, it seems that m = 2, n = 3, and we have the coordinate (3, 1), but 3 > m so it is outside the boundary region. Am I interpreting this wrong or is this input wrong?
+}
+----------------------------------------
+1485629153
+kevintat154@gmailcom
+A - Virtual Gardening
+
+{
+Is each input sent in one at a time or given all at once
+}
+----------------------------------------
+1485629192
+kevintat154@gmailcom
+A - Virtual Gardening
+
+{
+is each input given one at a time or all at once
+}
+----------------------------------------
+1485629876
+carson-chapman@sbcglobalnet
+C - League of Legionnaires
+
+{
+Do we need a blank line after each test case before a new test case is added? My code works in all of my test cases, but my code isn't being accepted.
+}
+----------------------------------------
+1485629894
+devenvimalpatel@gmailcom
+A - Virtual Gardening
+
+{
+I have a presentation error, is it because my cin's are on different lines? but I'm not using newline except where I'm supposed to. I return the output all at once at the end, is that wrong?
+}
+----------------------------------------
+1485630574
+kedarbthiagarajan@gmailcom
+B - Innocuous Redistricting
+
+{
+Is the grid set up columns x rows or rows x columns
+}
+----------------------------------------
+1485630600
+zhong74langhao@gmailcom
+General
+
+{
+what should i do if the input exceeds the limit?
+}
+----------------------------------------
+1485630743
+koeswantoandrew@gmailcom
+D - SherLock
+
+{
+when it says right and left bound, does that mean inclusive?
+
+for example, if I have an input that says
+1 999999 c
+
+does that mean the array is [a, c, .... c, a]? Or [a, a, c, ..., c, a, a]?
+}
+----------------------------------------
+1485631206
+kylewong975@gmailcom
+General
+
+{
+Is Java actually not working? I have a correct solution for Problem C but it is compile error.
+}
+----------------------------------------
+1485631461
+kevintat154@gmailcom
+General
+
+{
+i dont know c++ lol
+}
+----------------------------------------
+1485631669
+peifeng2005@gmailcom
+E - Stairs of Death
+
+{
+Could you outline how this works?
+4
+1 3 3 2
+}
+----------------------------------------
+1485632609
+jpak1099@gmailcom
+General
+
+{
+i have no idea how to c++ and idk how to fix an error that its throwing... can i ask for help for the coding or is that not allowed?
+}
+----------------------------------------
+1485633811
+peifeng2005@gmailcom
+General
+
+{
+Incorrect output != time out right?
+}
+----------------------------------------
+1485633893
+peifeng2005@gmailcom
+General
+
+{
+Is it possible to ask for a test case for a question?
+}

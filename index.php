@@ -64,8 +64,8 @@
 print <<<END
     <tr><td> 
         <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
-        <a href="view.php?problem=$letter" target="_blank" style="text-align:center; display:block" >
-            Problem $letter
+        <a href="view.php?problem=$letter" target="_blank" style="text-align:left; display:block" >
+            Problem $name ($g_pv[$letter])
         </a>
     </td></tr>
 END;

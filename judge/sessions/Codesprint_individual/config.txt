@@ -1,0 +1,13 @@
+CodeSprint LA, Winter 2017, Individual Round
+judge@example.com
+28 January 2017
+10:10 + 02:00
+0;A;
+Individual Round
+Virtual Gardening;             A.txt
+Innocuous Redistricting;       B.txt
+League of Legionnaires;        C.txt
+SherLock;                      D.txt
+Stairs of Death;               E.txt
+Travelling by Wormholes;       F.txt
+Tnge Twstr;                    G.txt

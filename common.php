@@ -277,10 +277,11 @@
       var $total = 0;
       var $penalty = 0;
       
-      function TeamScore($team, $id = "")
+      function TeamScore($team, $id = "", $pv = [])
       {
          $this->name = $team;
          $this->id = $id;
+         $this->pv = $pv;
       }
       
       // report the result of a judgement to this team's record
@@ -298,10 +299,14 @@
                break;
             // accepted, add penalty points
             case "A":
-               $this->solved[] = $problem;
+               if (!in_array($problem, $this->solved))  {
+                   $this->total += $this->pv[$problem];
+                   $this->solved[] = $problem;
+               }
                $this->attime[$problem] = $time;
-               $this->total++;
-               $this->penalty += $this->attime[$problem] + $this->booboo[$problem] * 20;
+               // trigger_error("Teamscore receives problem " . $problem, E_USER_WARNING);
+               // NEW_EDIT: DON"T PENALIZE BY WAs AT ALL 
+               $this->penalty += $this->attime[$problem]; // + $this->booboo[$problem] * 20;
                break;
             // default - assume it's wrong
             default:
@@ -316,13 +321,22 @@
          
          if (in_array($problem, $this->solved))
          {
-            $stat = $this->attime[$problem];
-            if (array_key_exists($problem, $this->booboo))
-               $stat = $stat . "+" . ($this->booboo[$problem] * 20);
+            //$stat = $this->attime[$problem];
+            $stat = $this->pv[$problem];
+            // trigger_error("g_pv for " . $problem . " is" . $stat, E_USER_WARNING);
+            //if (array_key_exists($problem, $this->booboo))
+            $seconds = $this->attime[$problem];
+            $minutes = floor($seconds / 60);
+            $seconds = $seconds - $minutes * 60;
+            if ($seconds < 10) $seconds = "0" . $seconds;
+            $stat = $stat . " (" . $minutes . ":" . $seconds .")"; 
          }
          else if (array_key_exists($problem, $this->booboo))
          {
             $stat = "(-" . $this->booboo[$problem] . ")";
+         }
+         else {
+             $stat = "0";
          }
          
          return $stat;
@@ -330,7 +344,7 @@
       
       function key()
       {
-         return sprintf("%02d%05d%s", 99 - $this->total, $this->penalty, $this->name);
+         return sprintf("%03d%05d%s", 999 - $this->total, $this->penalty, $this->name);
       }
    }
 

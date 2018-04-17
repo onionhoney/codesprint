@@ -1,0 +1,39 @@
+## Problem D - SherLock
+
+When Detective Sherlock is not busy solving crime mysteries, he is a part-time UCLA CS student. Unfortunately, he is not very good at programming and is miserably failing his courses. 
+
+On the day of Sherlock’s final exam for CS 136, the professor locked the classroom door shut! On the door was a note saying, “Whichever student unlocks this door with the right password will pass the course with a high-flying A++!”. The clue to finding the password is as follows:
+
+-----------
+
+You have a string of $10^6$ characters $(k\_0, k\_1, k\_2,\ldots,k\_{999999})$. Initially the string is composed entirely of the character ‘a’. I will give you a series of instructions on how to mutate the string. Each instruction consists of two integers and a character (call them $l$, $r$, $c$). For each character $k\_i$ in the string, if $(l \leq i \leq r)$, then you should replace $k\_i$ with $c$. Finally, I will give you four integers $i\_0$ $i\_1$ $i\_2$ $i\_3$, and you should output the characters $k\_{i\_0}$ $k\_{i\_1}$ $k\_{i\_2}$ $k\_{i\_3}$ in order.
+
+-----------
+
+Help your friend Sherlock write a program to solve this problem!
+
+### Input
+
+The first line of the input is an integer $n$ $(0 \leq n \leq 10^6)$ indicating the number of instructions. 
+
+Then follows $n$ lines each with $l$, $r$, $c$, where $l$ $(0 \leq l < 10^6)$ is an integer denoting the left bound of the range, $r$ $(l \leq r < 10^6)$ is an integer denoting the right bound of the range, and $c$ is a lowercase character denoting the character to use to repeat over the range. 
+
+The last line of the input is four integers $i\_0$ $i\_1$ $i\_2$ $i\_3$, the indices of the characters which you have to output.
+
+### Output
+
+Output four space-separated characters, $k\_{i\_0}$ $k\_{i\_1}$ $k\_{i\_2}$ $k\_{i\_3}$. You must have a space after the last character as well to be judged correct.
+
+### Sample Input
+```
+3
+1 999999 c
+500 1000 l
+750 2000 u
+800 2 515 0
+```
+
+### Sample Output
+```
+u c l a 
+```

@@ -2,7 +2,7 @@
    include("./config.php");
    include("./Parsedown.php");
 
-if (!isset($_GET["problem"]) || $_SESSION["contest_starts"] == 0) {
+if (!isset($_GET["problem"])) {  //|| $_SESSION["contest_starts"] == 0) {
     exit("You do not have access to the file.");
 }
 else {
@@ -28,7 +28,10 @@ else {
   </style>
 
   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+MathJax.Hub.Config({tex2jax: {
+inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+}});
   </script>
   <script type="text/javascript" async
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
@@ -37,12 +40,6 @@ else {
   <?php echo "<title> $title </title>" ?>
 </head>
 <body>
-<!--
-    <div id="content"></div>
-    <script>
-        document.getElementById('content').innerHTML = marked( <?php echo $text ?> );
-    </script>
--->
 <div class="markdown-body">
 <?php
     $Parsedown = new Parsedown();

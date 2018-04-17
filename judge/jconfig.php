@@ -81,7 +81,7 @@
       if ($fp = fopen($g_teamfile, "w"))
       {
          flock($fp, LOCK_EX);
-         for ($i = 1; $i <= 64; $i++)
+         for ($i = 1; $i <= 100; $i++)
          {
             $key = "team" . $i;
             if ($_POST[$key])

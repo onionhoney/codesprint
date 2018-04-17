@@ -1,0 +1,45 @@
+## Problem F - Scrambled Hanoi
+
+A classic game of Towers of Hanoi goes as follows (from wikipedia):
+
+-----------
+
+The Tower of Hanoi consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+
+The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+
+1. Only one disk can be moved at a time.
+2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
+3. No disk may be placed on top of a smaller disk.
+
+-----------
+
+Andy and his friends are competing to see who can solve the puzzle in the fewest number of moves. But since this is a well known puzzle, they all know the perfect solution and the matches always end in a draw. They decide to mix up the puzzle a bit by scrambling the initial position of the pegs. Can you help Andy determine the minimum number of moves to move the entire stack onto any single rod starting from the given initial position?
+
+### Input
+The first line of input consists of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases.
+
+The first line of each test case begins with a number $n$ $(1 \leq n \leq 25)$, the number of disks in this test case.
+The second line of each test case consists of n integers $a_1$ to $a_n$ $(1 \leq a\_i \leq 3)$, where the integer $a\_i$ denotes the initial rod location of the $i$th disk.
+
+Assume that the initial position is valid: smaller disks are always on top of larger disks. As such, there is no ambiguity regarding the order of the disks on each rod. 
+
+
+### Output
+For each test case, output an integer denoting the minimum number of moves to move all $n$ disks onto any single rod from the given initial position.
+
+### Sample Input
+
+```
+2
+5
+1 1 1 1 1
+7
+2 3 1 2 3 1 2
+```
+
+### Sample Output
+```
+0
+42
+```

@@ -1,0 +1,41 @@
+## Problem A - Virtual Gardening
+
+Rin is currently stuck in a virtual simulation with a tablet that can create anything she draws. She wants your help to create a beautiful field filled with flowers she can play around in!
+
+Rin knows how to draw several different types of flowers, each of which has its own beauty level. The beauty of a whole field is the sum of all the beauty levels of the flowers planted in that field.
+
+The tablet Rin is using has a short battery life, so she can only draw a total of $n$ $ (1 \leq n \leq 50000) $ flowers before it runs out of battery. Furthermore, Rin gets bored if she draws the same thing too many times, so she has a limit on how many of each type of flower she will draw.
+
+Help Rin determine that maximum beauty of a field she can create if she keeps on drawing flowers until her tablet runs out of battery, or when she refuses to draw any more flowers out of boredom!
+
+### Input
+
+The first line of the input consist of a single integer $t$ $ (1 \leq t \leq 100) $, the number of test cases.
+
+The first line of each test case will contain two integers, $p$ and $n$ $ (1 \leq p \leq 1000; 1 \leq n \leq 50000)$,  the number of types of flowers Rin is able to draw and the number of flowers she can draw before the tablet runs out of batteries, respectively.
+
+The next $p$ lines each contain two integers, $ b_i $ and $ n_i $ $(1 \leq n_i,b_i \leq 1000)$, with the $i$th such line signifying the beauty of each flower of type $i$ and the number of flowers Rin’s willing to draw of that type respectively. The types of flowers are sorted in order of decreasing beauty.
+
+### Output
+
+Output a single integer for each test case, the maximum beauty of a field Rin can create.
+
+### Sample Input
+
+```
+2
+3 5
+5 1
+4 2
+3 8
+1 1000
+5 10
+```
+
+### Sample Output
+
+```
+19
+50
+```
+

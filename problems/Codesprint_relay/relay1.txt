@@ -1,0 +1,98 @@
+## Relay 1A
+
+Billy is currently number the pages of his notebook from page $a$ to page $b$ $(1 \leq a < b \leq 10000)$. How many times will he be writing his most-used digit?
+
+### Input
+
+Two integers, $a$ and $b$ $(1 \leq a < b \leq 10000)$ denoting the beginning and ending pages of the range Billy decides to number.
+
+### Output
+
+Output one integer, the number of times Billy will be writing his most-used digit.
+
+### Sample Input
+
+```
+1 11
+```
+
+### Sample Output
+
+```
+4
+```
+
+### Final Input
+
+```
+56 7495
+```
+
+Pass the final output to the next person.
+
+
+## Relay 1B
+
+James got lost when taking a walk in the forest and is being attacked by a whole pack of $n$ $(1 <= n <= 100000)$ wolves! In an attempt to fend them off, he uses the following tactics:
+
+1. James will whack every 4th wolf in the face with his trusty backpack, starting with the fourth wolf.
+2. James will insult and bully every 6th wolf about their physical appearance, starting with the sixth wolf.
+3. James will threaten to call every 9th wolf's mom about their behavior, starting with the ninth wolf.
+
+How many wolves will come out of this grand battle suffering, physical, emotional, or moral wounds?
+
+### Input
+
+A single integer, $n$ $(1 \leq n \leq 10^5)$, the number of wolves that are attacking James.
+
+### Output
+
+Output one integer, the number of wolves suffering a wound tonight.
+
+### Sample Input
+
+```
+30
+```
+
+### Sample Output
+
+```
+12
+```
+
+### Final Input
+
+```
+{TNYWG}
+```
+
+Pass the final output to the next person.
+
+
+## Relay 1C
+
+Janey is a linguistic major and learns many alphabet systems in her spare time. She has a peculiar way of measuring her fondness of an alphabet: the number of possible distinct strings of length $10$ that do not have consecutive characters.
+
+The input will only contain one number $n$ $(0 \leq n \leq 10000)$ denoting the number of characters in the ith alphabet system. Since Janey’s fondness of a language can be very large, output the fondness mod $1000000007$.
+
+
+### Sample Input
+
+```
+10
+```
+
+### Sample Output
+
+```
+874204869
+```
+
+### Final Input
+
+```
+{TNYWG}
+```
+
+Turn in your final output on a small piece of paper along with your team name.

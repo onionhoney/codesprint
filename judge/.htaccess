@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Contest Judge"
-AuthUserFile /home/jeffrey/ucpccc/judge/.htpasswd
-require valid-user

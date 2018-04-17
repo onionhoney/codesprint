@@ -68,7 +68,7 @@
                if (in_array($team, $g_official))
                   $teamname = "<b><i>".$teamname."</i></b>";
                
-               $scores[$team] = new TeamScore($teamname, $team);
+               $scores[$team] = new TeamScore($teamname, $team, $g_pv);
             }
             
             $scores[$team]->report($prob, $time, $verdict);
@@ -107,8 +107,23 @@
       
       foreach ($contest->pletters as $letter)
       {
-         $link = $contest->problemshortlink($letter);
-         print "<th width=\"60\">$link</th>";
+         //$link = $g_problempath."all.php";
+         $link = $contest->problemlonglink($letter);
+         $name = $contest->pnames[$letter];
+         if ($_SESSION["contest_starts"] == 1) {
+print <<<END
+    <th width="60"> 
+        <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
+        <a href="view.php?problem=$letter" target="_blank" >
+            $letter
+        </a>
+    </th>
+END;
+         }
+         else {
+             //$link = $contest->problemshortlink($letter);
+             print "<th width=\"60\">$problem</th>";
+         }
       }
       print "<th>Total</th><th>Penalty</th></tr>\n";
    }

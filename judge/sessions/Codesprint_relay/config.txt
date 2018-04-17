@@ -1,0 +1,12 @@
+CodeSprint LA, Winter 2017 - Team Round
+judge@example.com
+27 January 2017
+12:00 + 300:00
+30;A;on
+Relay Round 1
+A;                             A.txt
+B;                             B.txt
+C;                             C.txt
+D;                             D.txt
+E;                             E.txt
+F;                             F.txt

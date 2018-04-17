@@ -1,0 +1,51 @@
+## Problem C - League of Legionnaires
+
+Jack is currently playing the very popular computer game League of Legionnaires. In this game, two teams of five Legionnaires each compete on a $m \times n$ $(1 \leq m,n \leq 100)$ grid to fight each other and destroy the other team’s base, where $m$ is the number of rows of the map and $n$ is the number of columns.
+
+Jack’s team has been doing fairly well - in the last team fight, he managed to kill four of the five members of the opposing team for a quadra-kill! However, the last enemy left is the sly and cunning Whiskers, the Disease Mouse, who just used his Invisibility ability to cloak himself and escape certain death. 
+
+Since Jack is playing the Legionnaire Salzahar, Prophet of the Underworld, he can foretell the path Whiskers will be taking to escape. Additionally, Jack remembered that he saw Whiskers disappear initially from row $a$ and column $b$ $(1 \leq a \leq m; 1 \leq b \leq n)$, where row $1$, column $1$ represents the cell in the upper left corner of the map.
+
+Whiskers can only move horizontally and vertically within the arena, one space at a time. Being the efficient mouse that he is, Whiskers will not visit previously walked cells or form cycles with his path to escape. A sample escape path can be seen on the diagram below, where S represents Whiskers’ starting position and # represents his route:
+
+```
+.###.  
+.#.##  
+S#..#  
+..###  
+```
+
+This route taken by Whiskers corresponds to the direction string “RUURRDRDDLL”, where U, D, L, R represents a single movement up, down, left, or right respectively.
+
+Coincidentally, all Legionnaires have four different abilities, mapped to the keyboard keys U, D, L, and R. In order to catch and kill Whiskers, Salzahar must use her abilities in the exact order that corresponds to his escape route’s direction string. Please help Jack get the penta-kill. Transcribe Whiskers’ escape route into a direction string so that Jack knows which abilities to use and in what order!
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases. 
+
+The first line of each test case will contain two integers $m$ and $n$ $(1 \leq m,n \leq 100)$, the number of rows and columns of the map respectively.
+
+The second line of each test case will contain two integers $a$ and $b$ $(1 \leq a \leq m; 1 \leq b \leq n)$. This denotes the starting position of Whiskers, where $a$ represent the row and $b$ represents the column. Row $1$, column $1$ corresponds to the cell in the upper left corner of the map.
+
+The next $m$ lines of each test case will make up the minimap Salzahar has shared with you to help you with your task. Each line will consist of exactly $n$ characters. Salzahar has also shared some of his prophetic findings on the map: a ‘#’ character represents a cell that’s part of Whiskers’ escape route, and the single S character represents Whiskers’ starting position (which was already given in the previous line). All other cells will contain the ‘.’ character. The path is guaranteed not to form cycles and contain at least one ‘#’ character.
+
+### Output
+
+Output a line containing a single string for each test case, the direction string that corresponds to Whiskers’ escape route.
+
+### Sample Input
+```
+1
+4 5
+3 1
+.###.
+.#.##
+S#..#
+..###
+```
+
+### Sample Output
+
+```
+RUURRDRDDLL
+```

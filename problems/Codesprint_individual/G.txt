@@ -1,0 +1,54 @@
+## Problem G - Tnge Twstr
+
+Jeremy loves partying but often attracts too much attention to himself when he's drunk, much to the annoyance of his girlfriend. Fortunately, whenever Jeremy loses a game at a party he gets embarrassed and quickly leaves the party. Mandy wants to stop Jeremy's partying addiction by making Jeremy lose party games.
+
+One day, in his drunken state at a Thursday night party, Jeremy gathers all the girls around to show off his verbal prowess with a game of TngeTwstr. The game goes as follows.
+
+First Jeremy selects a string s. Given any integer $k$ $(0 < k < |s|)$, he considers the set $b_k$: the set of all subsequences of $s$ with length $k$ without consecutive adjacent characters. If the $b_k$ is nonempty, he randomly selects one subsequence from $b_k$ and rapidly recites it $20$ times. If Jeremy stutters, he loses the game!
+
+Mandy knows Jeremy stutters when pronouncing a word if and only if the word ends in a vowel. Help Mandy analyse Jeremy's chance of losing the game!
+
+For this problem, vowels are characters belonging to the set {'a','e','i','o','u'}. String $s$ will only consist of lowercase letters.
+
+### Input
+
+The first line of the input is an integer $t$ $(0 \leq t \leq 50)$ indicating the number of test cases. 
+
+The first and only line of each test case consists of a string $s$ $(0 \leq |s| \leq 2000)$. String $s$ will only consist of lower case letters.
+
+### Output
+
+For each test case, output $|s|-1$ lines, with two integers on each line. On the ith line, output $r$ $\%$ $MOD$ and $p$ $\%$ $MOD$, where $MOD=1000000007$, $r$ denotes the size of $b_i$, and $p$ denotes the number of elements from $b_i$ that will make Jeremy stutter. 
+
+
+### Sample Input
+```
+2
+bba
+cda
+```
+
+### Sample Output
+```
+2 1
+1 1
+3 1
+3 2
+```
+
+Explanation of sample test cases:
+
+For the first test case, consider all possible values of $k$.
+
+When $k = 1$, $b_k$ is {"b","a"}, $r = 2$, $p = 1$.
+
+When $k = 2$, $b_k$ is {"ba"}. ("bb" has consecutive adjacent characters), $r = 1$, $p = 1$.
+
+
+
+For the second test case, consider all possible values of $k$.
+
+When $k = 1$, $b_k$ is {"c","d","a"}, $r = 3$, $p = 1$.
+
+When $k = 2$, $b_k$ is {"cd","ca","da"}, $r = 3$, $p = 2$.
+

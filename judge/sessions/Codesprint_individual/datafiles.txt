@@ -1,0 +1,8 @@
+A data/A.in			data/A.out			2
+B data/B.in			data/B.out			2
+C data/C.in			data/C.out			2
+D data/D.in			data/D.out			2
+E data/E.in			data/E.out			2
+F data/F.in			data/F.out			2
+G data/G.in			data/G.out			2
+

@@ -1,0 +1,46 @@
+## Problem B - Innocuous Redistricting
+
+Emerald City elections are coming up! To help her party’s representative get elected as the next Wizard of Oz, the Wicked Witch of the East was tasked to do some “innocuous” redistricting of her domain.
+
+The Land of Oz is located on the two-dimensional coordinate plane. The Wicked Witch’s domain is in the shape of a $m x n$ rectangle $(2 \leq m,n \leq 10^5)$ with the lower left corner of the rectangle located at the origin of the Land of Oz.
+
+The Wicked Witch of the East will have to divide up her domain into numerous smaller districts, and she wishes to do so in a way that benefits her party the most. However, the Fairy Election Commission (FEC) is very strict with regards to redistricting rules. She can only divide her domain up into districts by using straight horizontal or vertical lines that crosses her entire domain. Furthermore, the number of total districts after the redistricting process must be within a certain range as determined by the FEC each year.
+
+The Wicked Witch has drawn up her plan for redistricting her domain and shared it with you, her trusty advisor. She confirms that she followed all the line drawing rules (i.e. all of the lines she drew to divide her domain are either horizontal or vertical and they all span the entire domain). However, she is not too good at counting, so she needs your help!
+
+Please help the Wicked Witch count the number of final districts in her redistricting plan so that she can check if it is within the FEC’s bounds and not appear suspicious of political tampering!
+
+### Input
+
+The first line of the input consist of a single integer $t$ $(1 \leq t \leq 100)$, the number of test cases. 
+
+The first line of each test case will contain two integers, $m$ and $n$ $(2 \leq m,n \leq 10^5)$, the horizontal length and vertical width of the Wicked Witch’s district, respectively. Remember, the lower left corner of her district is at the origin of the Land of Oz.
+
+The second line of input will contain a single integer $k$ $(1 \leq k \leq 10^4)$, the number of total lines the Wicked Witch drew on her plan.
+
+The next $k$ lines will contain four integers each, $x\_1$, $y\_1$, $x\_2$, and $y\_2$ $(0 < x\_1,x\_2 < m; 0 < y\_1,y\_2 < n)$. Each line of input signifies a line drawn on the Witch’s plan from point $(x\_1, y\_1)$ to point $(x\_2, y\_2)$, and the lines are all unique. Each line is guaranteed to be either horizontal or vertical and span the entire length (if horizontal) or width (if vertical) of the domain.
+
+### Output
+
+Output a single integer for each test case, the number of districts the plan will divide the Wicked Witch’s domain into.
+
+### Sample Input
+
+```
+2
+6 4
+3
+1 0 1 4
+0 2 6 2
+4 0 4 4
+3 3
+1
+0 1 3 1
+```
+
+### Sample Output
+
+```
+6
+2
+```
