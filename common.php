@@ -11,8 +11,7 @@
     <!-- Bootstrap core CSS-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    Custom
-     <link rel="stylesheet" href="style.css" >
+     <link rel="stylesheet" href="/style.css" >
 
     ';
     #<!--main css-->
@@ -71,36 +70,44 @@
     </nav>';
    }
 
+
    function jnavigation($from)
    {
-      print "<hr><div align=\"center\"><p>\n";
-      print "[ ";
+    print '
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">CodeSprint</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">';
 
       if ($from != "judge")
-         print "<a href=\"judge.php\">Judgements</a>";
-      else print "Judgements";
-      print " | ";
+         print "<li class='nav-item'><a class='nav-link ' href='judge.php'> judgements </a></li>";
+      else print "<li class='nav-item'><a class='nav-link active' href='#'> judgements </a></li>";
 
       if ($from != "jclarify")
-         print "<a href=\"jclarify.php\">Clarifications</a>";
-      else print "Clarifications";
-      print " | ";
+         print "<li class='nav-item'><a class='nav-link' href='jclarify.php'> clarifications </a></li>";
+      else print "<li class='nav-item'><a class='nav-link active' href='#'> clarifications </a></li>";
 
       if ($from != "jscores")
-         print "<a href=\"jscores.php\">Scoreboard</a>";
-      else print "Scoreboard";
-      print " | ";
+         print "<li class='nav-item'><a class='nav-link' href='jscores.php'> scores </a></li>";
+      else print "<li class='nav-item'><a class='nav-link active' href='#'> scores </a></li>";
 
       if ($from != "jconfig")
-         print "<a href=\"jconfig.php\">Configuration</a>";
-      else print "Configuration";
-      print " | ";
-
-      print "<a href=\"..\" target=\"new\">Contest Page</a>";
-
-      print " ]\n";
-      print "</p></div>\n";
+         print "<li class='nav-item'><a class='nav-link' href='jconfig.php'> configuration </a></li>";
+      else print "<li class='nav-item'><a class='nav-link active' href='#'> configuration </a></li>";
+      print '</ul>';
+      print '<ul class="navbar-nav navbar-right">';
+       print "<li class='nav-item'><a class='nav-link' href='..'> contest page </a></li>";
+      print '</ul>
+      </div>
+    </nav>';
    }
+
+
 
    function footer($email)
    {
@@ -108,7 +115,7 @@
       print '<footer class="container py-5">
       <div class="row">
         <div class="col-12 col-md">
-          <img src="images/bear.png" style="margin-bottom:5px"></img>
+          <img src="/images/bear.png" style="margin-bottom:5px"></img>
           <p class="d-block mb-3 text-muted">UCLA CodeSprint 2018<br/>
             Hosted by ACM - ICPC
     </div>

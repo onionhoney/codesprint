@@ -82,19 +82,18 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle - Judge Verdicts</title>\n"; ?>
+
+    <?php headerer($g_pagetitle); ?>
 </head>
 
 <body>
 
-<div align="center">
-<h1>Hand Down Judgments!</h1>
-</div>
-
 <?php jnavigation("judge"); ?>
 
-<hr>
-<div align="center">
+<div class="container text-center" style='padding-top:5em;'>
+<h1>Hand Down Judgments!</h1>
+
+
 
 <!--
 <p>

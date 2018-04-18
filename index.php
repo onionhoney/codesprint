@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <?php headerer($g_pagetitle); ?>
+     <?php headerer($g_pagetitle); ?>
 </head>
 
 
