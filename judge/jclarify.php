@@ -172,7 +172,7 @@ clarification should be displayed to contestants.</p>
 <i><?=date("r")?></i></p>
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

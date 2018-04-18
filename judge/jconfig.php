@@ -437,7 +437,7 @@ END;
 
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

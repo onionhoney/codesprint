@@ -186,7 +186,7 @@ Doing so may cause post data to be resent. Instead, please use the button below.
 <i><?=date("r")?></i></p>
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 
