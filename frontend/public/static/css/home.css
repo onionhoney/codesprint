@@ -1,0 +1,222 @@
+p {
+    font-size: 20px;
+}
+
+.section-content {
+    padding: 60px;
+    background-color: white;
+}
+
+.section-header {
+    width: 100%;
+    text-align: left;
+}
+
+.section-header h1 {
+    position: relative;
+    top: 40px;
+    left: -30px;
+    color: #fff;
+    display: inline-block;
+    padding: 2px 20px 2px 20px;
+    font-size: 50px;
+}
+
+.second{
+    margin-top: 40px;
+}
+
+section {
+    /*background-color: rgb(250, 250, 250);*/
+    box-sizing: content-box;
+    height: max-content;
+    padding-bottom: 60px;
+}
+
+section p.plain {
+    text-align: justify;
+}
+
+@media screen and (max-width: 900px) {
+    .smallTitle {
+        display: block;
+    }
+    .largeTitle {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .smallTitle {
+        display: none;
+    }
+    .largeTitle {
+        display: block;
+    }
+}
+
+.about-header {
+    /*background-color: rgb(250, 210, 120);*/
+    background-color: gold;
+}
+
+.schedule-header {
+    background-color: limegreen;
+}
+
+.faq-header {
+    background-color: #e74c3c;
+}
+
+.sponsor-header{
+    background-color: #dfaef3;
+}
+
+.contact-header{
+    background-color: lightgray;
+}
+
+#contact h3{
+    font-size: 20px !important;
+    text-align: left;
+}
+
+#title1, #title3{
+    color: gold;
+}
+
+#title1{
+    text-align:right;
+    padding-right: 0;
+}
+#title2{
+    color: #d2d8f3;
+    text-align:left;
+    padding-left: 0;
+    padding-right: 0;
+}
+#title3{
+    text-align:left;
+    padding-left: 0;
+}
+
+nav{
+    font-family: Trench, sans-serif;
+}
+
+body {
+    background: url("../img/bg-pattern.png"), #5da0f3;
+    /* fallback for old browsers */
+    background: url("../img/bg-pattern.png"), -webkit-linear-gradient(to left, #5da0f3, #1da6f3);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: url("../img/bg-pattern.png"), linear-gradient(to left, #5da0f3, #1da6f3);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+}
+
+.scrolled {
+    background-color: #f5f5ef !important;
+    transition: background-color 200ms linear;
+}
+
+.scrolled .navbar-brand, .scrolled li a {
+    color: #34495e !important;
+}
+
+.scrolled li a:hover {
+    color: #5da0f3 !important;
+}
+
+.h2_home {
+    color: white
+}
+
+.btn-register {
+    background-color: #f3af61;
+    color: white;
+}
+
+.btn-more {
+    background-color: #7bdc93;
+    color: white;
+}
+
+.section-header{
+    font-family: Trench, sans-serif;
+}
+
+#schedule table{
+    text-align: center;
+}
+
+#schedule td{
+    width: 300px;
+    font-size: 20px;
+}
+
+#schedule p{
+    text-align: center;
+    font-size: 25px;
+}
+
+#faq h3{
+    font-size: 28px;
+    padding-bottom: 8px;
+}
+
+#faq p{
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+#sponsors .section-content{
+    text-align: center;
+}
+
+.other {
+    margin-top: 50px;
+}
+
+.facebook {
+    width: 50%;
+    margin: 2%;
+}
+
+.google{
+    width: 40%;
+    margin: 2%;
+}
+
+.microsoft{
+    width: 40%;
+    margin: 2%;
+}
+
+.playfull{
+    width: 50%;
+    margin: 2%;
+}
+
+.shophouse{
+    width: 30%;
+    margin: 2%;
+}
+
+.enzo{
+    width: 40%;
+    margin: 2%;
+}
+
+.intro-header h3{
+    color: white;
+}
+
+
+/* Responsive Portrait */
+@media screen and (max-width: 900px) {
+    .network-name{  font-size:1.5em !important;  }
+    #title1,#title2,#title3{text-align:center;}
+    .abcen1{  top:5%;  }
+    .abcen1 span{  font-size:.5em;  }
+    .abcen1 .date{  font-size:.7em;  }
+}
