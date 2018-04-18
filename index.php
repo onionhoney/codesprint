@@ -1,4 +1,7 @@
 <?php
+// This line is edited remotedly! 
+?>
+<?php
    include("./config.php");
    include("./common.php");
 ?>

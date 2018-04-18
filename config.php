@@ -44,7 +44,7 @@
    $g_pv = array();
    $tmp_pv = array_map('intval', file($g_pvfile));
    foreach ($tmp_pv as $idx => $pv) {
-       $g_pv[chr(ord(A) + $idx)] = $pv;
+       $g_pv[chr(ord('A') + $idx)] = $pv;
    }
    // setGlobalPaths();
 
