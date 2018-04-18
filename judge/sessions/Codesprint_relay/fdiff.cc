@@ -31,10 +31,10 @@ string trim(const string &s)
 bool test(string a, string b)
 {
     if (a == b) return true;
-    
+
     istringstream ain(a), bin(b);
-    
-    // check any initial 
+
+    // check any initial
     double da, db;
     while (ain >> da) {
         if (bin >> db) {
@@ -45,12 +45,12 @@ bool test(string a, string b)
         }
         else return false;
     }
-    
+
     // check the remainder of the strings
     string ax, bx;
     getline(ain, ax);
     getline(bin, bx);
-    
+
     // ignore whitespace
     return trim(ax) == trim(bx);
 }
@@ -58,7 +58,7 @@ bool test(string a, string b)
 int main(int argc, char *argv[])
 {
     char *file1 = 0, *file2 = 0;
-    
+
     for (int i = 1; i < argc; ++i) {
         if (argv[i][0] == '-') continue;
         if (file1) {
@@ -67,19 +67,19 @@ int main(int argc, char *argv[])
         }
         else file1 = argv[i];
     }
-    
+
     if (file1 == 0 || file2 == 0) {
         cout << "Insufficient arguments!" << endl;
         return 1;
     }
-    
+
     int different = 0;
-    
+
     // start line by line comparison
-    
+
     ifstream in1(file1);
     ifstream in2(file2);
-    
+
     string line1, line2;
     int line = 1;
     while (getline(in1, line1))
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
         }
         ++line;
     }
-    
+
     in1.close();
     in2.close();
 

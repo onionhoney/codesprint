@@ -1,5 +1,5 @@
 <?php
-// This line is edited remotedly! 
+// This line is edited remotedly!
 ?>
 <?php
    include("./config.php");
@@ -9,24 +9,19 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle</title>\n"; ?>
+    <?php headerer($g_pagetitle); ?>
 </head>
 
-<body>
 
-<div align="center">
-<h1><?=$g_pagetitle?></h1>
-<!--<h2><i>Online Training Arena</i></h2> -->
-<h2><i> Hosted by ACM-ICPC </i></h2>
-<p><img src="images/icpc_logo.png"></p>
-</div>
+<body >
 
-<?php navigation("index"); ?>
 
-<hr>
-<div align="center">
+<div class="container text-center" style='padding-top:5em;'>
+<h1>Contest</h1>
+      <?php navigation("index"); ?>
 
-<?php   
+
+<?php
    // just make sure the submitfile and judgefile are there
    if (!file_exists($g_submitfile))
    {
@@ -40,15 +35,19 @@
       fclose($fp);
       chmod($g_judgefile, 0660);
    }
-   
+
+?><?php
    $contest = new Contest($g_configfile, $g_problempath);
    if ($contest->okay)
    {
-      print "<p>Contest of $contest->cdate<br>\n";
-      print "<i>$contest->ctime</i></p>\n";
+print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
+  <h4 >'.$contest->cname.'</h4>
 
-      print "<table border=\"0\" width=\"320\">\n";
-      print "<tr><th>$contest->cname</th></tr>\n";
+  <h6 >From '.$contest->ctime.'</br>'
+  .$contest->cdate.'</br></h6 >
+  <h6>Current time: '.date("g:i:s A").'</h6>
+</div>';
+
       if ( ! session_id() ) @ session_start();
 
       if ($contest->tnow >= $contest->tstart) {
@@ -58,6 +57,8 @@
           $_SESSION["contest_starts"] = 0;
       }
 
+   print '<ul class="list-group" style="max-width:500px;margin:auto;margin-bottom:50px">';
+
       foreach ($contest->pletters as $letter)
       {
          //$link = $g_problempath."all.php";
@@ -65,25 +66,28 @@
          $name = $contest->pnames[$letter];
          if ($_SESSION["contest_starts"] == 1) {
 print <<<END
-    <tr><td> 
-        <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
-        <a href="view.php?problem=$letter" target="_blank" style="text-align:left; display:block" >
-            Problem $name ($g_pv[$letter])
+ <li class="list-group-item d-flex justify-content-between align-items-center">
+ <form style='display: none;' id="form$letter" action="view.php?problem=$letter" method="get" > </form>
+        <a style='color:black;' href="view.php?problem=$letter" target="_blank" style="text-align:left; display:block" >
+            Problem $name
         </a>
-    </td></tr>
+    <span class="badge badge-primary badge-pill badge-secondary">$g_pv[$letter]</span>
+  </li>
 END;
          }
          else {
 print <<<END
-    <tr><td> Problem $letter </td></tr>
+
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    Problem $letter
+    <span class="badge badge-primary badge-pill">1</span>
+  </li>
 END;
          }
       }
-      print "</table>\n";
-      
-      print "<p><i>For your questions, comments, and issues,<br>\n";
-      print "please contact your host today at</i><br>\n";
-      print "<a href=\"mailto:$contest->chost\">$contest->chost</a></p>\n";      
+      print "</ul>";
+
+
 
       // unlock (or relock) the problem set if necessary
       if ($contest->tnow > $contest->tstart)
@@ -98,11 +102,14 @@ END;
       }
    }
 ?>
-<p>Current date and time:<br>
-<i><?=date("r")?></i></p>
+
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 
