@@ -33,7 +33,7 @@
             $fchecked = "checked=\"checked\"";
             continue;
          }
-      
+
          list($key, $verdict) = explode(";", trim($line));
          if (array_key_exists($key, $runs))
             $runs[$key]->verdict = $verdict;
@@ -56,7 +56,7 @@
          fputs($fp, "FINAL\n");
          $fchecked = "checked=\"checked\"";
       }
-      
+
       foreach (array_keys($runs) as $key)
       {
          $pkey = str_replace(".", "_", $key);
@@ -70,9 +70,9 @@
       fputs($fp, $buffer);
       foreach ($runs as $run)
          fputs($fp, $run->judgement());
-         
+
       fclose($fp);
-      
+
       $_SESSION["judged"] = True;
       header("Location: judge.php");
       exit("Updated new judgements.");
@@ -152,8 +152,8 @@ Doing so may cause post data to be resent. Instead, please use the button below.
       $plink = $contest->jproblemlink($run->problem);
 //      $flink = "<a href=\"../$g_submitpath$run->team/$run->file\">$run->file</a>";
       $fname = $run->problem . $g_extension[$run->language];
-      $flink = "<a href=\"jfetch.php?file=" . 
-               urlencode("../$g_submitpath$run->team/$run->file") . 
+      $flink = "<a href=\"jfetch.php?file=" .
+               urlencode("../$g_submitpath$run->team/$run->file") .
                "&name=$fname\">$fname</a>";
       $pending = $run->verdict == "U";
 

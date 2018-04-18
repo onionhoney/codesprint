@@ -15,10 +15,10 @@
 
 <body >
 
+      <?php navigation("index"); ?>
 
 <div class="container text-center" style='padding-top:5em;'>
 <h1>Contest</h1>
-      <?php navigation("index"); ?>
 
 
 <?php
@@ -40,7 +40,7 @@
    $contest = new Contest($g_configfile, $g_problempath);
    if ($contest->okay)
    {
-print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
+print '<div style="margin-bottom:2em;">
   <h4 >'.$contest->cname.'</h4>
 
   <h6 >From '.$contest->ctime.'</br>'
@@ -68,7 +68,7 @@ print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
 print <<<END
  <li class="list-group-item d-flex justify-content-between align-items-center">
  <form style='display: none;' id="form$letter" action="view.php?problem=$letter" method="get" > </form>
-        <a style='color:black;' href="view.php?problem=$letter" target="_blank" style="text-align:left; display:block" >
+        <a href="view.php?problem=$letter" target="_blank" style="text-align:left; display:block" >
             Problem $name
         </a>
     <span class="badge badge-primary badge-pill badge-secondary">$g_pv[$letter]</span>

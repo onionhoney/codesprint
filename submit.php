@@ -48,7 +48,7 @@ print <<<END
 
 <form name="submit" method="post" action="confirm.php" enctype="multipart/form-data">
 
-<table border="0" width="400">
+<table class='table' width="400">
 <tr>
    <td>Problem:</td>
    <td><select name="problem">
@@ -87,7 +87,6 @@ END;
    }
 
 
-
    $team = $_SESSION["teamid"];
    $runs = array();
 
@@ -123,7 +122,7 @@ END;
 
    print "<p><b><big>Runs received from team $team</big></b></p>\n";
 
-   print "<table border=\"1\" width=\"480\" cellspacing=\"0\">\n";
+   print "<table class='table'>\n";
    print "<tr bgcolor=\"#EEEEEE\"><th>Time</th><th>Problem</th><th>Language</th><th>Verdict</th></tr>\n";
 
    foreach ($runs as $run)

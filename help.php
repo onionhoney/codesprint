@@ -153,7 +153,7 @@ Chuong Do for providing a very nice automatic judging script back end.
 
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

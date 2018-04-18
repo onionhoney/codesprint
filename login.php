@@ -6,14 +6,16 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle - Log In</title>\n"; ?>
+
+    <?php headerer($g_pagetitle.' - Log In'); ?>
 </head>
 
 <body>
 
-<div align="center">
-<h1>Team Log In</h1>
-</div>
+<?php navigation("login"); ?>
+
+<div class='container text-center' style='padding-top:5em;'>
+
 
 <?php
    // must do a quick pre-authentication so that navigation bar shows correctly
@@ -39,10 +41,7 @@
    }
 ?>
 
-<?php navigation("login"); ?>
 
-<hr>
-<div align="center">
 
 <?php
 
@@ -54,41 +53,55 @@
       if (array_key_exists($team, $g_teams) && $g_teams[$team] == $password)
       {
          //$_SESSION["teamid"] = $team;
-         print "<p><b><big>Now logged in as $team.</big></b></p>\n";            
+
+
+
+         print '<div class="alert alert-success" role="alert">Now logged in as '.$team.'.</div>';
       }
       else
       {
-         print "<font color=\"red\">\n";
          if (array_key_exists($team, $g_teams))
-            print "<p>Incorrect password!</p>\n";
+            print '<div class="alert alert-danger" role="alert">Incorrect password!</div>';
          else
-            print "<p>Unknown team name!</p>\n";
-         print "</font>\n";
+            print '<div class="alert alert-danger" role="alert">Unknown team name!</div>';
       }
    }
    // otherwise, we are attempting to log out
    else if ($loggedout)
    {
-      print "<p><b><big>Team $team now logged out.</big></b></p>\n";            
-   }
-   
-   if (empty($_SESSION["teamid"]))
-   {
-      print "<p><i>Warning: Team name is <b>case-sensitive</b>!!!</i></p>\n";
-      print "<form name=\"login\" method=\"post\" action=\"login.php\">\n";
-      print "<table border=\"0\" width=\"400\">\n";
-      print "<tr><td>Team:</td><td><input type=\"text\" name=\"team\" /></td></tr>\n";
-      print "<tr><td>Password:</td><td><input type=\"password\" name=\"password\" /></td></tr>\n";
-      print "<tr align=\"center\"><td colspan=\"2\"><input type=\"submit\" value=\"Log Me In!\" /></td></tr>\n";
-      print "</table>\n";
-      print "</form>\n"; 
+    print '<div class="alert alert-success" role="alert">Team '.$team.' is now logged out.</div>';
+
    }
 
+    print '<form class="border text-left" style="max-width:500px;margin:auto; padding:2em;background:white;" name="login" method="post" action="login.php">
+<div align="center"><h3 >Team Log In</h3>';
+
+   if (empty($_SESSION["teamid"]))
+   {
+
+      print '<p><i>Warning: Team name is <b>case-sensitive</b>!!!</i></p></div>
+ <div class="form-group">
+    <label class="form-label">Team</label>
+     <input class="form-control" type="text" name="team"/>
+   </div>
+ <div class="form-group">
+    <label class="form-label">Password</label>
+     <input class="form-control" type="password" name="password"/>
+   </div>
+
+<div align="center">
+<button type="submit" class="btn btn-secondary" value="submit" >Log Me In!</button>
+</div>';
+   }
+
+      print "</form>";
 ?>
 
 </div>
 
-<?php footer(); ?>
+</div>
+
+<?php footer($contest->chost); ?>
 
 </body>
 

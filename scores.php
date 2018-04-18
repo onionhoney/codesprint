@@ -75,7 +75,7 @@
          fclose($fp);
       }
 
-print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
+print '<div style="margin-bottom:2em;">
   <h4 >'.$contest->cname.'</h4>
 
   <h6 >From '.$contest->ctime.'</br>'
@@ -103,7 +103,7 @@ print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
 
       print "</div>";
 
-      print "<table class='table table-bordered table-striped table-dark'";
+      print "<table class='table table-striped '";
       print "<tr ><th width=\"40\">Rank</th>";
       print "<th>Team</th>";
 
@@ -116,7 +116,7 @@ print '<div class="jumbotron" style="background: none; margin-bottom:0em;">
 print <<<END
     <th width="60">
         <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
-        <a class='text-white' href="view.php?problem=$letter" target="_blank" >
+        <a style='color:black;' href="view.php?problem=$letter" target="_blank" >
             $letter
         </a>
     </th>
