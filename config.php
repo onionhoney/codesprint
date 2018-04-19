@@ -57,7 +57,8 @@
    $g_extension = array(
       "C"      => ".c",
       "C++"    => ".cc",
-      "Java"   => ".java"
+      "Java"   => ".java",
+      "Python"   => ".py"
    );
    
    $g_verdicts = array(

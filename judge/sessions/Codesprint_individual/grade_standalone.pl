@@ -18,7 +18,7 @@
 
 use strict;
 
-my @LANGUAGES = ("c", "cc", "java");
+my @LANGUAGES = ("c", "cc", "java", "py");
 my $TMP_DIR = "/tmp/acm";
 my $PROBLEM;
 my $EXT;
@@ -142,7 +142,8 @@ sub TestProgram {
 
 	# Stop if time-limit exceeded
 
-	if ($time_elapsed > $TIME_LIMIT) {
+    if ( (($EXT eq "py") && $time_elapsed > $TIME_LIMIT * 5) || 
+       (!($EXT eq "py") && $time_elapsed > $TIME_LIMIT)) {
 	    $time_limit_exceeded = 1;
 
 	    # Get list of descendant processes
@@ -325,6 +326,9 @@ sub main {
     } elsif ($EXT eq "java") {
 	$response = TestProgram ("javac $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",
 				 "java -classpath $TMP_DIR $PROBLEM < $JUDGE_IN > $TMP_DIR/$PROBLEM.out");
+    } elsif ($EXT eq "py") {
+    $response = TestProgram("mv $TMP_DIR/$PROBLEM.$EXT $TMP_DIR/$PROBLEM", # ; chmod u+x $TMP_DIR/$PROBLEM", 
+				 "python3 $TMP_DIR/$PROBLEM < $JUDGE_IN > $TMP_DIR/$PROBLEM.out");
     }
 
     if ($response eq "AC") {
