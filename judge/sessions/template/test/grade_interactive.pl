@@ -39,7 +39,7 @@
 use strict;
 use POSIX ":sys_wait_h";
 
-my @LANGUAGES = ("c", "cc", "java", "py");
+my @LANGUAGES = ("c", "cc", "java");
 my $TMP_DIR = "/tmp/acm";
 my $COMMUNICATOR = "communicator";
 my $PROBLEM;
@@ -366,9 +366,6 @@ sub main {
     } elsif ($EXT eq "java") {
 	$response = TestProgram("javac $TMP_DIR/$PROBLEM.$EXT 2> /dev/null",
 				"$TMP_DIR/$COMMUNICATOR -judge $JUDGE_PROGRAM_SPLIT $JUDGE_IN_SPLIT -test java -classpath $TMP_DIR $PROBLEM");
-    } elsif ($EXT eq "py") {
-    $response = TestProgram("chmod u+x $TMP_DIR/$PROBLEM.$EXT", 
-				"$TMP_DIR/$COMMUNICATOR -judge $JUDGE_PROGRAM_SPLIT $JUDGE_IN_SPLIT -test $TMP_DIR/$PROBLEM.$EXT");
     }
 
     if ($response eq "AC") {
