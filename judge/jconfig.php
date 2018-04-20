@@ -2,7 +2,7 @@
    chdir("../");
    include("config.php");
    include("common.php");
-   
+
    // process the POST data right away if any, and send a refresh header
    if ($_POST["contest"])
    {
@@ -13,12 +13,12 @@
          fputs($fp, stripcslashes($_POST["title"]) . "\n");
          fputs($fp, stripcslashes($_POST["chost"]) . "\n");
          fputs($fp, sprintf("%s %s %s\n", $_POST["cddate"], $_POST["cdmonth"], $_POST["cdyear"]));
-         fputs($fp, sprintf("%02d:%02d + %02d:%02d\n", 
+         fputs($fp, sprintf("%02d:%02d + %02d:%02d\n",
                             $_POST["cdhour"], $_POST["cdminute"],
                             $_POST["clhours"], $_POST["clminutes"]));
          fputs($fp, implode(";", array($_POST["freeze"], $_POST["firstletter"], $_POST["showtitle"])) . "\n");
          fputs($fp, stripcslashes($_POST["cname"]) . "\n");
-         
+
          // write up to 12 problems to configuration file
          for ($i = 1; $i <= 12; $i++)
             if ($_POST["problem".$i])
@@ -29,9 +29,9 @@
                $inputname = $_FILES["input".$i."-f"]["name"];
                $outputname = $_FILES["output".$i."-f"]["name"];
                fputs($fp, sprintf("%-30s %s\n", $name . ";", $url));
-               
-               // if a 
-               
+
+               // if a
+
                if ($url && $filename)
                {
                   $tempname = $_FILES["problem".$i."-f"]["tmp_name"];
@@ -51,9 +51,9 @@
                      $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $outputname in $g_testcasepath$outputname. </font></p></center>\n";
                }
             }
-         
+
          fclose($fp);
-         
+
          // unpack an uploaded archive if there is one
          if ($_FILES["archive"]["name"])
          {
@@ -64,7 +64,7 @@
                unlink($archive);
             }
          }
-         
+
          $_SESSION["savedc"] = True;
          header("Location: jconfig.php");
          exit("Saved contest information.");
@@ -74,7 +74,7 @@
          $_SESSION["error"] = "<center><p><b><font color=\"red\">Unable to save contest!</font></b></p></center>\n";
       }
    }
-   
+
    if ($_POST["teams"])
    {
       // save team information to team file
@@ -96,7 +96,7 @@
             }
          }
          fclose($fp);
-         
+
          $_SESSION["savedt"] = True;
          header("Location: jconfig.php");
          exit("Saved team information.");
@@ -122,16 +122,18 @@
 <html>
 
 <head>
-   <?php print "<title>$g_pagetitle - Judge Configuration</title>\n"; ?>
+    <?php headerer($g_pagetitle); ?>
 </head>
 
 <body>
 
-<div align="center">
-   <h1>Judge Contest Configuration</h1>
-</div>
 
 <?php jnavigation("jconfig"); ?>
+<div class="container text-center" style='padding-top:5em;'>
+<h1>Judge Contest Configuration</h1>
+
+
+
 
 <?php
    // if an error occurred while processing POST data, display it here
@@ -145,8 +147,7 @@
 
 
 <!-- ---------- CONTEST & PROBLEM SET ---------- -->
-<hr>
-<div align="center">
+
 
 <p><b><big>Session Switching</big></b></p>
 
@@ -201,27 +202,27 @@ END;
       print "<p><font color=\"green\">Contest and problem set information saved.</font></p>\n";
       unset($_SESSION["savedc"]);
    }
-   
+
    // load configuration values from file
    if ($fp = fopen($g_configfile, "r"))
    {
       flock($fp, LOCK_SH);
-      
+
       // read page title and contest host contact
       $title = htmlspecialchars(trim(fgets($fp)));
       $chost = htmlspecialchars(trim(fgets($fp)));
-      
+
       // read contest date and tiem
       list($cddate, $cdmonth, $cdyear) = fscanf($fp, "%d %s %d\n");
       list($cdhour, $cdminute, $clhours, $clminutes) = fscanf($fp, "%d:%d + %d:%d\n");
-      
+
       // read scoreboard freeze, first letter, and show titles
       list($freeze, $firstletter, $showtitle) = explode(";", trim(fgets($fp)));
       $showtitle = $showtitle ? "checked=\"checked\"" : "";
-      
+
       // read problem set name
       $cname = htmlspecialchars(trim(fgets($fp)));
-      
+
       // read problem names and URLs
       $problems = array();
       while ($line = fgets($fp))
@@ -262,10 +263,10 @@ END;
          print "         </select>\n";
          print "         <select name=\"cdyear\">\n";
          for ($i = 2016; $i <= 2020; $i++) {
-            $sel = ($i == $cdyear) ? "selected=\"selected\"" : "";         
+            $sel = ($i == $cdyear) ? "selected=\"selected\"" : "";
             print "            <option value=\"$i\" $sel>$i</option>\n";
          }
-         print "         </select>\n";                  
+         print "         </select>\n";
 // ----- HTML -----
 print <<<END
       </td>
@@ -278,7 +279,7 @@ END;
 // ----- END -----
          print "         <select name=\"cdhour\">\n";
          for ($i = 0; $i <= 23; $i++) {
-            $sel = ($i == $cdhour) ? "selected=\"selected\"" : "";         
+            $sel = ($i == $cdhour) ? "selected=\"selected\"" : "";
             printf("            <option value=\"%02d\" $sel>%02d</option>\n", $i, $i);
          }
          print "         </select> :\n";
@@ -287,7 +288,7 @@ END;
             $sel = ($i == $cdminute) ? "selected=\"selected\"" : "";
             printf("            <option value=\"%02d\" $sel>%02d</option>\n", $i, $i);
          }
-         print "         </select>\n";                  
+         print "         </select>\n";
 // ----- HTML -----
 print <<<END
       </td>
@@ -322,8 +323,8 @@ END;
 // ----- END -----
 ?>
 
-<table border="1" cellspacing="0" cellpadding="2">
-<tr bgcolor="#EEEEEE">
+<table  >
+<tr >
    <th></th>
    <th>Problem Name</th>
    <th>URL</th>
@@ -338,10 +339,10 @@ END;
       $line = explode(";", $problems[$i-1]);
       $name = htmlspecialchars(trim($line[0]));
       $url  = trim($line[1]);
-   
+
       if ($i % 2)    print "<tr bgcolor=\"#EDF3FE\">\n";
       else           print "<tr>\n";
-      
+
       if ($i == 1)
       {
          $values = array("A", "1");
@@ -353,9 +354,9 @@ END;
          print "</select>&nbsp;</td>\n";
       }
       else           print "   <td></td>\n";
-      
-      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i\" size=\"30\" value=\"$name\" /></td>\n";
-      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i-u\" size=\"12\" value=\"$url\" /></td>\n";
+
+      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i\" value=\"$name\" /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i-u\" value=\"$url\" /></td>\n";
       print "   <td><input type=\"file\" name=\"problem$i-f\" /></td>\n";
       print "   <td><input type=\"file\" name=\"input$i-f\" /></td>\n";
       print "   <td><input type=\"file\" name=\"output$i-f\" /></td>\n";
@@ -412,7 +413,7 @@ END;
       $official = 0;
       if (in_array($team, $g_official))   $official = 1;
       if (in_array($team, $g_invisible))  $official = -1;
-      
+
       if ($i % 2) print "<tr bgcolor=\"#EDF3FE\">\n";
       else         print "<tr>\n";
       print "   <td align=\"center\"><input type=\"text\" name=\"team$i\" size=\"12\" value=\"$team\" /></td>\n";
@@ -425,7 +426,7 @@ END;
       }
       print "   </select></td>\n";
       print "   <td align=\"center\"><input type=\"text\" name=\"team$i-n\" size=\"24\" value=\"$name\" /></td>\n";
-      print "   <td align=\"center\"><input type=\"text\" name=\"team$i-m\" size=\"36\" value=\"$members\" /></td>\n";      
+      print "   <td align=\"center\"><input type=\"text\" name=\"team$i-m\" size=\"36\" value=\"$members\" /></td>\n";
       print "</tr>\n";
    }
 ?>
@@ -436,7 +437,7 @@ END;
 
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

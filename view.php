@@ -1,13 +1,12 @@
 <?php
    include("./config.php");
    include("./Parsedown.php");
-
 if (!isset($_GET["problem"])) {  //|| $_SESSION["contest_starts"] == 0) {
     exit("You do not have access to the file.");
 }
 else {
     $letter = $_GET["problem"];
-    $title = Problem . " " . $letter; 
+    $title = Problem . " " . $letter;
     $text = file_get_contents($g_problempath . $letter.".txt");
 }
 ?>

@@ -6,23 +6,16 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle - Submit</title>\n"; ?>
+    <?php headerer($g_pagetitle.' - Submit'); ?>
 </head>
 
 <body>
-
-<div align="center">
-<h1>Submissions</h1>
-</div>
-
 <?php
-   navigation("submit");
+$contest = new Contest($g_configfile, $g_problempath);
+   navigation("submit"); ?>
 
-   $contest = new Contest($g_configfile, $g_problempath);
-?>
-
-<hr>
-<div align="center">
+<div class='container text-center' style='padding-top:5em;'>
+<h1>Submissions</h1>
 
 <?php
 
@@ -41,11 +34,11 @@ else
    // check that the contest is still running
    if ($contest->tnow < $contest->tstart)
    {
-      print "<p><i>Waiting for contest to start.</i></p>\n";      
-   }   
+      print "<p><i>Waiting for contest to start.</i></p>\n";
+   }
    else if ($contest->tnow >= $contest->tend)
    {
-      print "<p><i>Contest is over.</i></p>\n";      
+      print "<p><i>Contest is over.</i></p>\n";
    }
    else
    {
@@ -55,7 +48,7 @@ print <<<END
 
 <form name="submit" method="post" action="confirm.php" enctype="multipart/form-data">
 
-<table border="0" width="400">
+<table class='table' width="400">
 <tr>
    <td>Problem:</td>
    <td><select name="problem">
@@ -93,8 +86,6 @@ END;
 // ----- END -----
    }
 
-   
-   print "<hr>\n";
 
    $team = $_SESSION["teamid"];
    $runs = array();
@@ -128,23 +119,23 @@ END;
       fclose($fp);
    }
 
-   
+
    print "<p><b><big>Runs received from team $team</big></b></p>\n";
 
-   print "<table border=\"1\" width=\"480\" cellspacing=\"0\">\n";
-   print "<tr bgcolor=\"#EEEEEE\"><th>Time</th><th>Problem</th><th>Language</th><th>Verdict</th></tr>\n";            
+   print "<table class='table'>\n";
+   print "<tr bgcolor=\"#EEEEEE\"><th>Time</th><th>Problem</th><th>Language</th><th>Verdict</th></tr>\n";
 
    foreach ($runs as $run)
    {
       $verdict = array_key_exists($run->verdict, $g_verdicts) ?
                      $g_verdicts[$run->verdict] : "Unknown";
-      if ($run->verdict == "E") 
+      if ($run->verdict == "E")
          $verdict = $verdict . " <i>(Please contact judge!)</i>";
-      
+
       // colour code the results
       if ($run->verdict == "U")        print "<tr>";
       else if ($run->verdict == "A")   print "<tr bgcolor=\"#CCFFCC\">";
-      else                             print "<tr bgcolor=\"#FFCCCC\">";      
+      else                             print "<tr bgcolor=\"#FFCCCC\">";
       print "<td>$run->time</td><td>$run->problem</td><td>$run->language</td><td>$verdict</td></tr>\n";
    }
    print "</table><br>\n";
@@ -154,7 +145,7 @@ END;
 
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

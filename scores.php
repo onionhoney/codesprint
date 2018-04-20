@@ -7,25 +7,23 @@
 
 <head>
 <meta http-equiv="refresh" content="300;URL=scores.php">
-<?php print "<title>$g_pagetitle - Scoreboard</title>\n"; ?>
+ <?php headerer($g_pagetitle); ?>
 </head>
 
-<body>
-
-<div align="center">
-<h1>Contest Scoreboard</h1>
-</div>
+<body >
 
 <?php navigation("scores"); ?>
 
-<hr>
-<div align="center">
+
+<div class="container text-center" style='padding-top:5em;'>
+<h1>Contest Scoreboard</h1>
+
 
 <?php
    // check to see if we want to show invisible teams
    $invisible = in_array($_SESSION["teamid"], $g_invisible);
    $showhidden = $invisible || $_GET["guest"];
-   
+
    $okay = False;
    $final = False;
    $contest = new Contest($g_configfile, $g_problempath);
@@ -36,7 +34,7 @@
          flock($fp, LOCK_SH);
          $okay = True;
          $scores = array();
-         
+
          while ($line = fgets($fp))
          {
             if (trim($line) == "FINAL")
@@ -44,45 +42,49 @@
                $final = True;
                continue;
             }
-            
+
             list($temp, $verdict) = explode(";", trim($line));
             list($time, $team, $prob, $lang, $file) = explode(",", $temp);
             list($hours, $minutes) = explode(":", $time);
             $time = $hours * 60 + $minutes;
-            
+
             // throw out score reports that haven't happened yet
-            if ($contest->tnow < $contest->tend && 
+            if ($contest->tnow < $contest->tend &&
                 $contest->tnow < $contest->tstart + $time * 60 + $g_judgelag)
                continue;
-            
+
             // throw out score reports that are after scoreboard freeze
             if (!$final && $contest->tstart + $time * 60 > $contest->tfreeze)
                continue;
-            
+
             if (!array_key_exists($team, $scores))
             {
                $teamname = $team;
                if (array_key_exists($team, $g_alias))
                   $teamname = $g_alias[$team];
-               
+
                if (in_array($team, $g_official))
                   $teamname = "<b><i>".$teamname."</i></b>";
-               
+
                $scores[$team] = new TeamScore($teamname, $team, $g_pv);
             }
-            
+
             $scores[$team]->report($prob, $time, $verdict);
          }
-         
+
          fclose($fp);
-      }   
-         
-      print "<p>Contest of $contest->cdate<br>\n";
-      print "<i>$contest->ctime</i></p>\n";
-      
+      }
+
+print '<div style="margin-bottom:2em;">
+  <h4 >'.$contest->cname.'</h4>
+
+  <h6 >From '.$contest->ctime.'</br>'
+  .$contest->cdate.'</br></h6 >
+  <h6>Current time: '.date("g:i:s A").'</h6>';
+
       $tnow = time();
       $tremain = (int) (($contest->tend - $tnow) / 60);
-      
+
       if ($tnow > $contest->tstart) {
          if ($final)
             print "<p><b><i>Final Scoreboard</i></b></p>\n";
@@ -93,18 +95,18 @@
                print "<p><b><i>Last minute!</i></b></p>\n";
             else
                print "<p><b><i>Contest is over... final judgements pending.</i></b></p>\n";
-               
+
             if ($contest->tend > $contest->tfreeze && $tnow > $contest->tfreeze)
                print "<p><i>(scoreboard is frozen)</i></p>\n";
          }
       }
-      
-      print "<p><b><big>$contest->cname</big></b></p>\n";
-      
-      print "<table border=\"1\" width=\"95%\" cellspacing=\"0\">\n";
-      print "<tr bgcolor=\"#EEEEEE\"><th width=\"40\">Rank</th>";
+
+      print "</div>";
+
+      print "<table class='table table-striped '";
+      print "<tr ><th width=\"40\">Rank</th>";
       print "<th>Team</th>";
-      
+
       foreach ($contest->pletters as $letter)
       {
          //$link = $g_problempath."all.php";
@@ -112,9 +114,9 @@
          $name = $contest->pnames[$letter];
          if ($_SESSION["contest_starts"] == 1) {
 print <<<END
-    <th width="60"> 
+    <th width="60">
         <form id="form$letter" action="view.php?problem=$letter" method="get" > </form>
-        <a href="view.php?problem=$letter" target="_blank" >
+        <a style='color:black;' href="view.php?problem=$letter" target="_blank" >
             $letter
         </a>
     </th>
@@ -132,7 +134,7 @@ END;
    {
       foreach ($scores as $ts)
          $sorted[$ts->key()] = $ts;
-         
+
       if ($sorted)
       {
          ksort($sorted);
@@ -142,10 +144,9 @@ END;
          {
             if (!$showhidden && in_array($ts->id, $g_invisible))
                continue;
-            
+
             ++$rank;
-            if ($rank == 1) print "<tr bgcolor=\"#FFF7CC\">\n";
-            else if ($rank % 2) print "<tr bgcolor=\"#EDF3FE\">\n";
+            print "<tr >\n";
             print "<td align=\"center\">$rank</td>";
             print "<td>$ts->name</td>";
             foreach ($contest->pletters as $letter)
@@ -155,12 +156,12 @@ END;
             }
             print "<td align=\"center\">$ts->total</td>";
             print "<td align=\"center\">$ts->penalty</td>";
-            print "</tr>\n";      
+            print "</tr>\n";
          }
       }
       print "</table>\n";
-      print "<p>Only official teams are shown in <b><i>emphasized</i></b> typeface.</p>\n";
-      
+      print "<p class='text-center'>Only official teams are shown in <b><i>emphasized</i></b> typeface.</p>\n";
+
       print "<blockquote><p align=\"left\">\n";
       $whoswho = array();
       foreach (array_keys($scores) as $team)
@@ -177,11 +178,9 @@ END;
       print "Cannot open $g_submitfile for data!";
    }
 ?>
-<p>Current date and time:<br>
-<i><?=date("r")?></i></p>
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

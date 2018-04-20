@@ -13,7 +13,7 @@
    {
       flock($fp, LOCK_SH);
       while ($line = fgets($fp))
-         if ($line{0} == "-") 
+         if ($line{0} == "-")
          {
             $c = Clarification::read($fp);
             $clarifications[$c->id] = $c;
@@ -26,7 +26,7 @@
    {
       flock($fp, LOCK_SH);
       while ($line = fgets($fp))
-         if ($line{0} == "-") 
+         if ($line{0} == "-")
          {
             $c = Clarification::read($fp);
             if (!array_key_exists($c->id, $clarifications))
@@ -42,9 +42,9 @@
    if ($_POST["clarify"] && ($fp = fopen($g_clarfile, "w")))
    {
       flock($fp, LOCK_EX);
-   
+
       // update the clarifications in the array
-      foreach (array_keys($clarifications) as $key) 
+      foreach (array_keys($clarifications) as $key)
       {
          if ($_POST[$key . "q"])
          {
@@ -56,7 +56,7 @@
             $clarifications[$key]->write($fp);
          }
       }
-      
+
       // check for a new judge clarification
       if ($_POST[$jkey])
       {
@@ -68,12 +68,12 @@
          $newclar->responded = True;
          fputs($fp, "----------------------------------------\n");
          $newclar->write($fp);
-         
+
          $clarifications[$newclar->id] = $newclar;
       }
 
       fclose($fp);
-      
+
       $_SESSION["clarified"] = True;
       header("Location: jclarify.php");
       exit("Updated new clarifications.");
@@ -82,20 +82,19 @@
 
 <html>
 
-<head>
-<?php print "<title>$g_pagetitle - Judge Clarifications</title>\n"; ?>
+<head> <?php headerer($g_pagetitle); ?>
 </head>
 
 <body>
 
-<div align="center">
+
+
+
+<?php jnavigation("jconfig"); ?>
+<div class="container text-center" style='padding-top:5em;'>
 <h1>Answer Clarifications</h1>
-</div>
 
-<?php jnavigation("jclarify"); ?>
 
-<hr>
-<div align="center">
 
 <!-- NOTE: Browser refresh is now handled properly
 <p>
@@ -116,7 +115,7 @@ Doing so may cause post data to be resent. Instead, please use the button below.
 
 <form name="clarifications" method="post" action="jclarify.php">
 <p><input type="submit" name="clarify" value="Answer the Questions"></p>
-<p>Please check the box on the right labelled * to indicate that the 
+<p>Please check the box on the right labelled * to indicate that the
 clarification should be displayed to contestants.</p>
 <table border="1" width="960" cellspacing="0">
 <tr bgcolor="#EEEEEE">
@@ -131,7 +130,7 @@ clarification should be displayed to contestants.</p>
    $jclar = new Clarification("Judge", "General", "");
    $jclar->id = $jkey;
    $clarifications[$jkey] = $jclar;
-   
+
    // order clarifications so that the newest are at the top
    $clarifications = array_reverse($clarifications, true);
    foreach ($clarifications as $c)
@@ -163,7 +162,7 @@ clarification should be displayed to contestants.</p>
       print "   <td align=\"center\" width=\"360\"><textarea name=\"$akey\" rows=\"5\" cols=\"44\">$c->answer</textarea></td>\n";
       print "   <td align=\"center\"><input name=\"$c->id\" type=\"checkbox\" $checked /></td>\n";
       print "</tr>\n";
-   }   
+   }
 ?>
 
 </table>
@@ -173,7 +172,7 @@ clarification should be displayed to contestants.</p>
 <i><?=date("r")?></i></p>
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 

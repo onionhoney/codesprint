@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Contest Judge"
+AuthUserFile /var/www/codesprint/judge/.htpasswd
+require valid-user

@@ -17,7 +17,7 @@
          $clar->write($fp);
          fclose($fp);
          $_SESSION["logged"] = True;
-         
+
          // refresh the page to prevent double POST
          header("Location: clarify.php");
          exit("Clarification logged.");
@@ -30,58 +30,62 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle - Clarifications</title>\n"; ?>
+<?php headerer($g_pagetitle.' - Clarifications'); ?>
 </head>
 
-<body>
 
-<div align="center">
-<h1>View Clarifications</h1>
-</div>
+<body >
+
 
 <?php navigation("clarify"); ?>
-   
-<hr>
-<div align="center">
+
+<div class='container text-center' style='padding-top:5em;'>
+
+
 
 <?php
    $contest = new Contest($g_configfile, $g_problempath);
 
    // if a clarification request was logged, print an acknowledgement here
    if (isset($_SESSION["logged"]))
-   {   
-      print "<p><b><big>Clarification Request Result:</big></b></p>\n";
-   
+   {
+
       if ($_SESSION["logged"])
       {
-         print "<p><i>Your request has been successfully logged.<br>\n";
-         print "Please be patient and wait for your response to appear below.</i></p>\n";         
+
+         print '<div class="alert alert-success" role="alert">Clarification Request Result: Your request has been successfully logged.<br>';
+         print "Please be patient and wait for your response to appear below.</div>";
       }
       else
       {
-         print "<p>Error processing your request!</p>\n";
-      }         
-      print "<hr>\n";
-      
+         print '<div class="alert alert-danger" role="alert">Clarification Request Result: Error processing your request!</div>';
+      }
+
       unset($_SESSION["logged"]);
    }
+   ?>
 
+<h1>View Clarifications</h1>
+
+
+
+<?php
    // now print out the existing clarifications
    if (file_exists($g_clarfile)) {
       if ($fp = fopen($g_clarfile, "r"))
       {
          flock($fp, LOCK_SH);
          print "<p><b><big>$setname</big></b></p>\n";
-         print "<table border=\"1\" width=\"75%\" cellspacing=\"0\" cellpadding=\"6\">\n";
-         print "<tr bgcolor=\"#EEEEEE\"><th width=\"25%\">Problem</th>";
-         print "<th>Clarification</th></tr>\n";         
+         print "<table class='table'>";
+         print "<tr ><th width=\"25%\">Problem</th>";
+         print "<th>Clarification</th></tr>\n";
          while ($line = fgets($fp))
             if ($line{0} == "-")
             {
                $c = Clarification::read($fp);
                $question = nl2br($c->question);
                $answer = nl2br($c->answer);
-               
+
                if ($c->responded)
                {
                   print "<tr><td>$c->problem</td>\n";
@@ -100,7 +104,7 @@
    }
    else {
       print "<p><big><i>There are no clarifications at this time.</i></big></p>\n";
-   }   
+   }
 ?>
 
 </div>
@@ -110,40 +114,47 @@
 if ($team)
 {
 // ----- HTML -----
+
+
+
 print <<<END
 <hr>
-<div align="center">
+<form class='border text-left' style='max-width:500px;margin:auto; padding:2em;background:white;' name="view" method="post" action="clarify.php">
 
-<p><b><big>Request Clarification</big></b></p>
 
-<form name="view" method="post" action="clarify.php">
-<table border="0" width="400">
-<tr>
-   <td>Problem:</td>
-   <td><select name="problem">
-      <option value="General">General</option>
+<div align="center"><h3 >Request Clarification</h3></div>
+
+ <div class="form-group">
+    <label class="form-label">Problem</label>
+    <select class="form-control" name="problem">
+        <option value="General">General</option>
 END;
 // ----- END -----
          foreach ($contest->pnames as $name)
             print "<option value=\"$name\">$name</option>";
 // ----- HTML -----
 print <<<END
-   </select></td>
-</tr>
-<tr><td colspan="2" align="center">
-   <textarea name="request" rows="5" cols="44">(type your question in this box)</textarea>
-</td></tr>
-<tr align="center"><td colspan="2"><input type="submit" value="Bug the Judge..."></td></tr>
+   </select>
+   </div>
+<div class="form-group">
+<label class="form-label">Question</label>
+   <textarea name="request" class="form-control" placeholder="(type your question in this box)">Type your question in this box!</textarea>
+</div>
+
+<div align="center">
+<button type="submit" class="btn btn-secondary" value='submit' >Bug the judge...</button>
+</div>
 </table>
 </form>
-
-</div>
 END;
+
 // ----- END -----
 }
 ?>
 
-<?php footer(); ?>
+
+
+<?php footer($contest->chost); ?>
 
 </body>
 
