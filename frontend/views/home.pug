@@ -49,9 +49,9 @@ html
                         li.menuItem
                             a(href='#about')
                                 b about
-                        li.menuItem
-                            a(href='#schedule')
-                                b schedule
+                        //- li.menuItem
+                        //-     a(href='#schedule')
+                        //-         b schedule
                         li.menuItem
                             a(href='#faq')
                                 b f.a.q
@@ -76,22 +76,21 @@ html
                                 img(src='static/img/CodeSprintLA.png')
                 h2.h2_home.wow.fadeIn(data-wow-delay='0.6s')
                     b.date
-                     span January 28th | CS76, UCLA
+                     span May 20th
+                h3 Carnesale Commons, UCLA
                 h3 Hosted by ACM-ICPC
                 ul.list-inline.intro-social-buttons
-                    li
-                        a.btn.btn-lg.btn-register.wow.fadeIn(href='https://codesprintla.typeform.com/to/yxV0I9', data-wow-delay='0.8s', target='_blink')
-                            span.network-name
-                                b Register
-                    li#download
-                        a.btn.btn-lg.btn-more.wow.swing.wow.fadeIn(href='#about', data-wow-delay='1.2s')
-                            span.network-name
-                                b More Info
+                    //- ''https://codesprintla.typeform.com/to/yxV0I9
 
-                    li#download
-                        a.btn.btn-lg.btn-compete.wow.swing.wow.fadeIn(href='/', data-wow-delay='1.2s')
+                    li
+                        a.btn.btn-lg.btn-register.wow.fadeIn(href='https://goo.gl/forms/ikzqwGhfThzFiNDg1', data-wow-delay='0.8s', target='_blink')
                             span.network-name
-                                b Compete
+                                b Register Team
+                    li#download
+                        a.btn.btn-lg.btn-more.wow.swing.wow.fadeIn(href='https://goo.gl/forms/yACjEM71r7brVX9t1', data-wow-delay='1.2s')
+                            span.network-name
+                                b Register Individaul
+
                 br
             // /.container
             .col-xs-12.text-center.abcen.wow.fadeIn
@@ -106,36 +105,38 @@ html
                     p.plain
                         | CodeSprint LA is a multi-round team algorithmic coding competition geared towards those newer to competitive programming. Team up with two of your friends and race your fellow Bruins in order to solve the most problems and win prizes and bragging rights!
                     p.plain.second
-                        | We will be holding our first iteration of CodeSprint LA on Saturday, January 28th from 9:30 AM to 3:30 PM. Join us for an exciting day of coding battles, free food, swag, and have a great time! Top teams and individuals will win prizes including Fitbits, Birksun solar-powered backpacks, 3D printing pens, Xbox games, and more.
-        section#schedule
-            .container
-                .section-header
-                    h1.schedule-header schedule
-                .section-content
-                    p.plain
-                        | CodeSprint LA will take place on Saturday, January 28th in room CS76 (Court of Sciences 76)
-                    table.table.borderless
-                        tr
-                            td Registration
-                            td 9:30 AM
-                        tr
-                            td Opening and Rules
-                            td 9:45 AM
-                        tr
-                            td Individual Round
-                            td 10:00 AM
-                        tr
-                            td Lunch
-                            td 12:00 PM
-                        tr
-                            td Team Round
-                            td 12:45 PM
-                        tr
-                            td Relay Round
-                            td 2:30 PM
-                        tr
-                            td Award Ceremony
-                            td 3:00 PM
+                        | We will be holding our second iteration of CodeSprint LA on Sunday, May 20th
+                        //- from 9:30 AM to 3:30 PM.
+                        //- Join us for an exciting day of coding battles, free food, swag, and have a great time! Top teams and individuals will win prizes including Fitbits, Birksun solar-powered backpacks, 3D printing pens, Xbox games, and more.
+        //- section#schedule2
+        //-     .container
+        //-         .section-header
+        //-             h1.schedule-header schedule
+        //-         .section-content
+        //-             p.plain
+        //-                 | CodeSprint LA will take place on Saturday, January 28th in room CS76 (Court of Sciences 76)
+        //-             table.table.borderless
+        //-                 tr
+        //-                     td Registration
+        //-                     td 9:30 AM
+        //-                 tr
+        //-                     td Opening and Rules
+        //-                     td 9:45 AM
+        //-                 tr
+        //-                     td Individual Round
+        //-                     td 10:00 AM
+        //-                 tr
+        //-                     td Lunch
+        //-                     td 12:00 PM
+        //-                 tr
+        //-                     td Team Round
+        //-                     td 12:45 PM
+        //-                 tr
+        //-                     td Relay Round
+        //-                     td 2:30 PM
+        //-                 tr
+        //-                     td Award Ceremony
+        //-                     td 3:00 PM
         section#faq
             .container
                 .section-header
@@ -156,8 +157,9 @@ html
                             h3 How much does it cost?
                             p Nothing! Attendees will also receive free lunch and swag!
                             h3 What are the prizes?
-                            p Each member of the first place team will receive a Fitbit Flex, and each member of the second and third place teams will receive a Birksun solar-powered backpack. We will also be giving out awards to best individuals and underclassmen. Top participants will have the option of submitting their resumes to our sponsors (Facebook, Google, and Microsoft) for internship and job opportunities!
-        section#sponsors
+                            p Each member of the first place team will receive a Fitbit Flex, and each member of the second and third place teams will receive a Birksun solar-powered backpack. We will also be giving out awards to best individuals and underclassmen. Top participants will have the option of submitting their resumes to our sponsors!
+                            //- (Facebook, Google, and Microsoft) for internship and job opportunities!
+        section#sponsors2
             .container
                 .section-header
                     h1.sponsor-header sponsors
