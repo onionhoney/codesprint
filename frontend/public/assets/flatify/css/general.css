@@ -1,16 +1,16 @@
 @font-face {
 	font-family: Neogrey-medium;
-	src: url(../../../fonts/Neogrey/NeogreyMedium.otf)
+	src: url(../../../static/fonts/Neogrey/NeogreyMedium.otf)
 }
 
 @font-face {
 	font-family: Neogrey-regular;
-	src: url(../../../fonts/Neogrey/NeogreyRegular.otf)
+	src: url(../../../static/fonts/Neogrey/NeogreyRegular.otf)
 }
 
 @font-face {
 	font-family: Trench;
-	src: url(../../../fonts/trench.ttf)
+	src: url(../../../static/fonts/trench.ttf)
 }
 
 /*General */
