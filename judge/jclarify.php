@@ -90,7 +90,7 @@
 
 
 
-<?php jnavigation("jconfig"); ?>
+<?php jnavigation("jclarify"); ?>
 <div class="container text-center" style='padding-top:5em;'>
 <h1>Answer Clarifications</h1>
 
