@@ -31,8 +31,12 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">';
 
+      if ($from != "home")
+         print "<li class='nav-item'><a class='nav-link ' href='/home'> home </a></li>";
+      else print "<li class='nav-item'><a class='nav-link active' href='#'> home </a></li>";
+
       if ($from != "index")
-         print "<li class='nav-item'><a class='nav-link ' href='index.php'> contest </a></li>";
+         print "<li class='nav-item'><a class='nav-link ' href='contest.php'> contest </a></li>";
       else print "<li class='nav-item'><a class='nav-link active' href='#'> contest </a></li>";
 
       if ($from != "scores")
