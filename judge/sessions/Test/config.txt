@@ -1,0 +1,8 @@
+Practice Contest
+judge@example.com
+10 May 2018
+12:00 + 9999:00
+30;A;on
+Problem Set Title
+A;                             A.txt;     --
+B;                             B.txt;     A
