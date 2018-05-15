@@ -1,0 +1,19 @@
+[Haoyu's rewrites]
+5a)
+SELECT tail
+FROM equipment_flight as ef
+WHERE DATE(departure_time) = CURDATE()
+GROUP BY tail
+HAVING COUNT(*) > 5;
+
+5b) 
+SELECT flight, origin, destination
+FROM flights LEFT JOIN snacks 
+ON flights.flight = snacks.flight
+WHERE snack IS NULL;
+
+
+6a) log_2 (1 B)
+6b) log_50 (1 B)
+6c)
+1 B * (1 - e^(-lambda*x))

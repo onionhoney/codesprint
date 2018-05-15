@@ -189,9 +189,11 @@
       var $pletters = array();
       var $pnames = array();
       var $purls = array();
+      var $pprereqs = array();
 
       var $okay;
 
+      // e.g. $contest = new Contest($g_configfile, $g_problempath);
       function Contest($problemfile, $problempath)
       {
          // Don't know why this include is necessary... remove if possible
@@ -233,10 +235,12 @@
                          htmlspecialchars(trim($line[0])) : "?????";
                $name = "$letter - " . $ptitle;
                $url  = $problempath . trim($line[1]);
+               $prereqs = trim($line[2]);
 
                $this->pletters[] = $letter;
                $this->pnames[$letter] = $name;
                $this->purls[$letter] = $url;
+               $this->pprereqs[$letter] = explode(",", $prereqs);
 
                ++$letter;
             }
@@ -249,6 +253,16 @@
             print "Cannot open $problemfile for data!";
             $this->okay = False;
          }
+      }
+
+      // Returns the array of prereqs
+      function problemprereq($letter)
+      {
+          // if (!isset($this->pprereqs[$letter])) {
+          //     return array();
+          // }
+          $prereq = $this->pprereqs[$letter];
+          return $prereq;
       }
 
       function problemlink($letter)
@@ -356,7 +370,7 @@
 
          switch ($verdict)
          {
-            // unjuged or submission error, ignore
+            // unjudged or submission error, ignore
             case "U":
             case "E":
                break;
@@ -378,6 +392,17 @@
          }
       }
 
+      // Returns array of solved problems
+      function solved_array()
+      {
+         return $this->solved;
+      }
+      function solved($problem)
+      {
+         return in_array($problem, $this->solved);
+      }
+
+      // Produces pretty HTML-usable display based on problem status
       function problemstat($problem)
       {
          $stat = "&nbsp;";

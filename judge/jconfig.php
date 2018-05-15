@@ -26,11 +26,17 @@
                $name = stripcslashes($_POST["problem".$i]);
                $url = $_POST["problem".$i."-u"];
                $filename = $_FILES["problem".$i."-f"]["name"];
-               $inputname = $_FILES["input".$i."-f"]["name"];
-               $outputname = $_FILES["output".$i."-f"]["name"];
-               fputs($fp, sprintf("%-30s %s\n", $name . ";", $url));
 
-               // if a
+               $inputname = ($_FILES["input".$i."-f"]["name"] == "") ? "" : $name . ".in"; //$_FILES["input".$i."-f"]["name"];
+               $outputname = ($_FILES["output".$i."-f"]["name"] == "") ? "" : $name . ".out"; //$_FILES["output".$i."-f"]["name"];
+               if ($i == 1){
+                   $prereq = "--";    // hardcoded default prereqs, until we add the feature to the front-end
+               }
+               else {
+                   $prereq = implode(",", range('A', chr(ord('A')+$i-2)));
+               }
+               fputs($fp, sprintf("%-30s %-10s %s\n", $name . ";", $url . ";", $prereq));
+
 
                if ($url && $filename)
                {
@@ -339,6 +345,7 @@ END;
       $line = explode(";", $problems[$i-1]);
       $name = htmlspecialchars(trim($line[0]));
       $url  = trim($line[1]);
+      $prereqs = trim($line[2]);    // never used
 
       if ($i % 2)    print "<tr bgcolor=\"#EDF3FE\">\n";
       else           print "<tr>\n";

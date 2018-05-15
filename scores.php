@@ -35,6 +35,7 @@
          $okay = True;
          $scores = array();
 
+         // read the file
          while ($line = fgets($fp))
          {
             if (trim($line) == "FINAL")
@@ -69,6 +70,7 @@
                $scores[$team] = new TeamScore($teamname, $team, $g_pv);
             }
 
+            // feed the variables (scores) from above into file
             $scores[$team]->report($prob, $time, $verdict);
          }
 
@@ -130,7 +132,7 @@ END;
       print "<th>Total</th><th>Penalty</th></tr>\n";
    }
 
-   if ($okay)
+   if ($okay) // Sort the teams
    {
       foreach ($scores as $ts)
          $sorted[$ts->key()] = $ts;
@@ -149,7 +151,7 @@ END;
             print "<tr >\n";
             print "<td align=\"center\">$rank</td>";
             print "<td>$ts->name</td>";
-            foreach ($contest->pletters as $letter)
+            foreach ($contest->pletters as $letter) // for each problem
             {
                $stat = $ts->problemstat($letter);
                print "<td align=\"center\">$stat</td>";

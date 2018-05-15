@@ -50,7 +50,7 @@ void init()
 
 void judge(bool interactive = true)
 {
-    set<string> judged;
+    map<string, char> judged;
     set<string> submit;
     map<string, char> judging;
 
@@ -60,31 +60,22 @@ void judge(bool interactive = true)
         string key;
         istringstream iss(s);
         getline(iss, key, ';');
-        judged.insert(key);
+        char state;
+        iss.get(state);
+
+        judged[key] = state;
     }
     jin.close();
 
     ifstream sin("submissions.txt");
     while (getline(sin, s)) {
-        if (judged.find(s) == judged.end())
-            submit.insert(s);
-    }
-    sin.close();
+        if (judged.find(s) == judged.end() || judged[s] == 'U') {
+            cout << "not yet processed or processed but unjudged" << endl;
 
-    ifstream solvedin("solved.txt");
-    map<string, vector<string> > solved;
-    while (getline(solvedin, s)) {
-        stringstream teamline(s);
-        string teamname;
-        string prob;
-        getline( teamline, teamname, ';');
-        while(teamline.good())
-        {
-            getline( teamline, prob, ',');
-            solved[teamname].push_back(prob);
+            submit.insert(s);
         }
     }
-    solvedin.close();
+    sin.close();
 
     for (set<string>::iterator it = submit.begin(); it != submit.end(); ++it)
     {
@@ -111,8 +102,10 @@ void judge(bool interactive = true)
                     << input[problem][i] << ' ' << output[problem][i] << ' '
                     << timelimit[problem] << ' ' << verifier[problem];
             }
+            cout << "Running the judger" << endl;
             code = system(oss.str().c_str());
             code = WEXITSTATUS(code);
+            cout << vname[code] << endl;
         }
 
         if (interactive)
@@ -134,16 +127,8 @@ void judge(bool interactive = true)
             cout << "Verdict for " << *it << " is: " << verdict[code] << endl;
             judging[*it] = verdict[code];
         }
+    }
 
-        if (verdict[code] == 'A')
-            solved[team].push_back(problem);
-    }
-    ofstream sout("solved.txt");
-    for (map<string, vector<string> >::iterator it = solved.begin(); it != solved.end(); ++it) {
-        string str(it->second.begin(), it->second.end());
-        sout << str << endl;
-    }
-    sout.close();
 
     ofstream jout("judgements.txt", ios::app);
     for (map<string, char>::iterator it = judging.begin(); it != judging.end(); ++it) {
