@@ -33,6 +33,12 @@ section {
     padding-bottom: 60px;
 }
 
+.plaina {
+    color: inherit;
+    text-decoration: underline;
+}
+
+
 section p.plain {
     text-align: justify;
 }
@@ -223,4 +229,7 @@ body {
     .abcen1{  top:5%;  }
     .abcen1 span{  font-size:.5em;  }
     .abcen1 .date{  font-size:.7em;  }
+    .intro-header {
+        height: 800px;
+    }
 }

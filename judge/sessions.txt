@@ -1,4 +1,4 @@
-Codesprint_team
+Codesprint_individual
 Codesprint 17 individual round;Codesprint_individual
 Codesprint 17 team round;Codesprint_team
 Codesprint 17 relay round;Codesprint_relay

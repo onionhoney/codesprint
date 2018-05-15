@@ -10,4 +10,4 @@ League of Legionnaires;        C.txt
 SherLock;                      D.txt
 Stairs of Death;               E.txt
 Travelling by Wormholes;       F.txt
-Tnge Twstr;                    G.txt
+Tnge Twstr;                    GG.txt
