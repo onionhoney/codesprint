@@ -29,7 +29,6 @@
    $contest = new Contest($g_configfile, $g_problempath);
    if ($contest->okay)
    {
-       # opens up judge file
       if ($fp = fopen($g_judgefile, "r"))
       {
          flock($fp, LOCK_SH);
@@ -45,7 +44,6 @@
                continue;
             }
 
-            // split the lines based on ;,:
             list($temp, $verdict) = explode(";", trim($line));
             list($time, $team, $prob, $lang, $file) = explode(",", $temp);
             list($hours, $minutes) = explode(":", $time);
@@ -72,7 +70,7 @@
                $scores[$team] = new TeamScore($teamname, $team, $g_pv);
             }
 
-            # feed the variables (scores) from above into file --- line 333 common.php
+            // feed the variables (scores) from above into file
             $scores[$team]->report($prob, $time, $verdict);
          }
 
@@ -136,9 +134,6 @@ END;
 
    if ($okay) // Sort the teams
    {
-      $_SESSION["contest"]=$contest;
-      $_SESSION["scores"]=$scores;
-
       foreach ($scores as $ts)
          $sorted[$ts->key()] = $ts;
 
@@ -149,9 +144,6 @@ END;
          $rank = 0;
          foreach ($sorted as $ts)
          {
-            // Save the array of solved problems globally -- Goal: ideally want to pass the Team object globally....
-            $_SESSION["solved".$_SESSION["teamid"]] = $ts->solved_array();
-
             if (!$showhidden && in_array($ts->id, $g_invisible))
                continue;
 

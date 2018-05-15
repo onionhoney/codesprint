@@ -26,17 +26,17 @@
                $name = stripcslashes($_POST["problem".$i]);
                $url = $_POST["problem".$i."-u"];
                $filename = $_FILES["problem".$i."-f"]["name"];
-               $inputname = $_FILES["input".$i."-f"]["name"];
-               $outputname = $_FILES["output".$i."-f"]["name"];
+
+               $inputname = ($_FILES["input".$i."-f"]["name"] == "") ? "" : $name . ".in"; //$_FILES["input".$i."-f"]["name"];
+               $outputname = ($_FILES["output".$i."-f"]["name"] == "") ? "" : $name . ".out"; //$_FILES["output".$i."-f"]["name"];
                if ($i == 1){
-                   $prereq = "--";    // hardcoded default, until we add the feature to the front-end
+                   $prereq = "--";    // hardcoded default prereqs, until we add the feature to the front-end
                }
                else {
-                   $prereq = "A";
+                   $prereq = implode(",", range('A', chr(ord('A')+$i-2)));
                }
                fputs($fp, sprintf("%-30s %-10s %s\n", $name . ";", $url . ";", $prereq));
 
-               // if a
 
                if ($url && $filename)
                {

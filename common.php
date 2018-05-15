@@ -236,7 +236,6 @@
                $name = "$letter - " . $ptitle;
                $url  = $problempath . trim($line[1]);
                $prereqs = trim($line[2]);
-               print($prereqs);
 
                $this->pletters[] = $letter;
                $this->pnames[$letter] = $name;
@@ -371,7 +370,7 @@
 
          switch ($verdict)
          {
-            // unjuged or submission error, ignore
+            // unjudged or submission error, ignore
             case "U":
             case "E":
                break;

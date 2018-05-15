@@ -9,14 +9,14 @@
    // if (!function_exists('setGlobalPaths')) {
    // function setGlobalPaths() {
    // This configuration file sets up paths, files, and users.
-   
+
    $g_problempath = "problems/";
    $g_submitpath  = "judge/";
 
    // Now, g_sessionsfile is the only config file in /judge
    // We will read contest name and fileid from it, and load
    // the appropriate resources from the fileid.
-   
+
    $g_sessionsfile = $g_submitpath . "sessions.txt";
 
    // read the current session's id
@@ -40,6 +40,7 @@
    $g_teamfile    = $g_sessionpath . "teams.txt";
    $g_configfile  = $g_sessionpath . "config.txt";
    $g_iplogfile   = $g_sessionpath . "iplog.txt";
+   $g_solvedfile   = $g_sessionpath . "solved.txt";
    $g_pvfile = $g_sessionpath . "pv.txt";
    $g_pv = array();
    $tmp_pv = array_map('intval', file($g_pvfile));
@@ -50,17 +51,17 @@
 
    // whether or not to log contestant IP address (for security tracking)
    $g_logIPs   = true;
-   
+
    // judging lag or delay in seconds, for the virtual teams
    $g_judgelag = 0;
-   
+
    $g_extension = array(
       "C"      => ".c",
       "C++"    => ".cc",
       "Java"   => ".java",
       "Python"   => ".py"
    );
-   
+
    $g_verdicts = array(
       "U" => "<i>Not Yet Judged</i>",
       "A" => "<b>Accepted</b>",
@@ -71,17 +72,17 @@
       "C" => "Compile Error",
       "E" => "Submission Error"
    );
-   
+
    $g_months = array(
       "January", "February", "March",
       "April", "May", "June",
       "July", "August", "September",
       "October", "November", "December"
    );
-   
+
    // number of teams to show on the judge configuration screen
    $g_teamtablesize = 100;
-   
+
    // The following array maps teams to passwords!
    $g_teams = array();
 
@@ -90,7 +91,7 @@
 
    // The following array defines all "official" teams competing in the contest
    $g_official = array();
-    
+
    // The following array defines teams that are in "invisible" mode (ie. guests)
    $g_invisible = array();
 
@@ -103,7 +104,7 @@
 
    session_start();
    date_default_timezone_set($g_timezone);
-   
+
    // load the page title
    if ($fp = fopen($g_configfile, "r"))
    {
@@ -111,7 +112,7 @@
       $g_pagetitle = trim(fgets($fp));
       fclose($fp);
    }
-   
+
    // load the teams
    if ($fp = fopen($g_teamfile, "r"))
    {
@@ -127,7 +128,7 @@
       }
       fclose($fp);
    }
-   
+
    // just make sure the submitfile and judgefile are there
    if (!file_exists($g_submitfile))
    {

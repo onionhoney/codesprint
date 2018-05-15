@@ -1,6 +1,7 @@
 <?php
    include("./config.php");
    include("./Parsedown.php");
+   include("./common.php");
 
 if (!isset($_GET["problem"])) {  //|| $_SESSION["contest_starts"] == 0) {
     exit("You do not have access to the file.");
@@ -8,23 +9,43 @@ if (!isset($_GET["problem"])) {  //|| $_SESSION["contest_starts"] == 0) {
 else {
     $letter = $_GET["problem"];
     // get prereqs for that letter
-    // $team_solved = $_SESSION["solved".$_SESSION["teamid"]]; //$_SESSION["scores"][$team]->solved($letter);//
-    // if (!isset($_SESSION["contest"])) {
-    //     exit("Error: contest has not been set");
-    // }
-    // $contest = $_SESSION["contest"];//->problemprereq($letter);
-    // $problem_prereqs = $contest;//[$letter];//->problemprereq($letter);//["pprereqs"];
-    // // $problem_prereqs = $contest["pprereqs"][$letter];
-    // var_dump($contest);
-    // var_dump($problem_prereqs);
-    // //if not all the prereqs are satisfied, exit
-    // foreach ($problem_prereqs as $prereq)
-    // {
-    //     if($prereq == "--")
-    //         continue;
-    //     if(!in_array($prereq, $team_solved))
-    //         exit("You must first solve " . $problem_prereqs . ". You haven't solved " . $prereq);
-    // }
+    // what teamname is associated to this teamid?
+    $contest = new Contest($g_configfile, $g_problempath);
+    $problem_prereqs = $contest->problemprereq($letter);
+    $team_solved = array();
+    $teamname = $_SESSION["teamid"];
+    if ($teamname == "")
+        exit("You must login.");
+    // Read g_solvedfile
+    if ($contest->okay)
+    {
+       if ($fp = fopen($g_solvedfile, "r"))
+       {
+          flock($fp, LOCK_SH);
+
+          // read the file
+          while ($line = fgets($fp))
+          {
+             list($s_teamname, $problems) = explode(";", trim($line));
+             if ($s_teamname == $teamname)
+                $team_solved = explode(",", $problems);
+                break;
+          }
+
+          fclose($fp);
+       }
+   }
+   // echo "Team solved: "; print_r($team_solved);
+   // echo "<br>Problem prereqs: "; print_r($problem_prereqs);
+
+    //if not all the prereqs are satisfied, exit
+    foreach ($problem_prereqs as $prereq)
+    {
+        if($prereq == "--")
+            continue;
+        if(!in_array($prereq, $team_solved))
+            exit("You must first solve [" . implode(',', $problem_prereqs) . "]. You haven't solved " . $prereq);
+    }
 
     $title = Problem . " " . $letter;
     $text = file_get_contents($g_problempath . $letter.".txt");

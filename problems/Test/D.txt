@@ -1,0 +1,34 @@
+SELECT
+HOUR(TIME(DateTime)) as hours,
+SUM(Throughput) as totthr
+FROM rides2017
+GROUP BY hours;
+
+
+
+SELECT Origin, Destination FROM
+(SELECT Origin, Destination, SUM(Throughput) as totthr
+FROM rides2017
+WHERE WEEKDAY(DateTime) >= 0
+    AND WEEKDAY(DateTime) <= 4
+GROUP BY Origin, Destination
+ORDER BY totthr DESC
+LIMIT 1) as tmp;
+
+
+
+SELECT Destination, SUM(Throughput)/52 as avethr
+FROM rides2017
+WHERE WEEKDAY(DateTime) = 0
+    AND HOUR(TIME(DateTime)) >= 7
+    AND HOUR(TIME(DateTime)) <= 10
+GROUP BY Destination
+ORDER BY avethr DESC
+LIMIT 5;
+
+
+SELECT Origin FROM
+(SELECT Origin, MAX(Throughput) as maxthr, SUM(Throughput)/(365*24) as avethr
+FROM rides2017
+GROUP BY Origin) as tmp
+where maxthr > 100*avethr;
