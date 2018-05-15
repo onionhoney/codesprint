@@ -20,22 +20,29 @@
          fputs($fp, stripcslashes($_POST["cname"]) . "\n");
 
          // write up to 12 problems to configuration file
-         for ($i = 1; $i <= 12; $i++)
+         for ($i = 1; $i <= 6; $i++)
             if ($_POST["problem".$i])
             {
                $name = stripcslashes($_POST["problem".$i]);
                $url = $_POST["problem".$i."-u"];
+
                $filename = $_FILES["problem".$i."-f"]["name"];
 
                $inputname = ($_FILES["input".$i."-f"]["name"] == "") ? "" : $name . ".in"; //$_FILES["input".$i."-f"]["name"];
                $outputname = ($_FILES["output".$i."-f"]["name"] == "") ? "" : $name . ".out"; //$_FILES["output".$i."-f"]["name"];
+
+
+               $prereq = $_POST["prereq".$i];
+               $tlimit = $_POST["tlimit".$i];
+               /*
                if ($i == 1){
                    $prereq = "--";    // hardcoded default prereqs, until we add the feature to the front-end
                }
                else {
                    $prereq = implode(",", range('A', chr(ord('A')+$i-2)));
                }
-               fputs($fp, sprintf("%-30s %-10s %s\n", $name . ";", $url . ";", $prereq));
+                */
+               fputs($fp, sprintf("%-30s;%-10s;%-10s;%-10s\n", $name, $url, $prereq, $tlimit));
 
 
                if ($url && $filename)
@@ -240,14 +247,17 @@ END;
 // ----- HTML -----
 print <<<END
 <form name="contest" method="post" action="jconfig.php" enctype="multipart/form-data">
-<table cellpadding="2">
+<div class="container"> 
+   <div class="row"><div class="col-2"> </div> 
+   <div class="col-8">
+<table cellpadding="2" class="">
    <tr>
       <td>Page Title</td>
-      <td><input type="text" name="title" size="30" value="$title" /></td>
+      <td><input class="" type="text" name="title" size="30" value="$title" /></td>
    </tr>
    <tr>
       <td>Host Contact</td>
-      <td><input type="text" name="chost" size="30" value="$chost" /></td>
+      <td><input class="" type="text" name="chost" size="30" value="$chost" /></td>
    </tr>
    <tr>
       <td>Contest Date</td>
@@ -302,8 +312,8 @@ print <<<END
    <tr>
       <td>Contest Length</td>
       <td>
-         <input type="text" name="clhours" size="2" value="$clhours" /> Hours&nbsp;
-         <input type="text" name="clminutes" size="2" value="$clminutes" /> Minutes
+         <input type="text"  name="clhours" size="5" value="$clhours" /> Hours&nbsp;
+         <input type="text"  name="clminutes" size="3" value="$clminutes" /> Minutes
       </td>
    </tr>
    <tr>
@@ -324,28 +334,37 @@ print <<<END
       <td><b>Problem Set Name</b></td>
       <td><input type="text" name="cname" size="30" value="$cname" /></td>
    </tr>
-</table><br>
+   </table> </div>
+   <div class="col-2"> </div>  </div>
+   </div>
+   <br>
 END;
 // ----- END -----
 ?>
 
-<table  >
+<table class="" style="table-layout: fixed; width: 100%">  <?php // table-responsive" style="overflow:hidden"> ?>
+<thead>
 <tr >
-   <th></th>
-   <th>Problem Name</th>
-   <th>URL</th>
-   <th>Problem File Upload</th>
-   <th>Input (<i>filename</i>.in) </th>
-   <th>Answer (<i>filename</i>.out) </th>
+   <th width="6%">Initial</th>
+   <th width="20%">Problem Name</th>
+   <th width="8%">URL</th>
+   <th width="17%">Statement</th>
+   <th width="17%">Input (<i>filename</i>.in) </th>
+   <th width="17%">Answer (<i>filename</i>.out) </th>
+   <th width="10%">Prereq </th>
+   <th width="6%">Time</th>
 </tr>
+</head>
 
 <?php
-   for ($i = 1; $i <= 12; $i++)
+   for ($i = 1; $i <= 6; $i++)
    {
       $line = explode(";", $problems[$i-1]);
       $name = htmlspecialchars(trim($line[0]));
       $url  = trim($line[1]);
-      $prereqs = trim($line[2]);    // never used
+      $prereq = trim($line[2]);
+      $prereq = $prereq == '' ? '--' : $prereq;
+      $tlimit = trim($line[3] ?? '1');
 
       if ($i % 2)    print "<tr bgcolor=\"#EDF3FE\">\n";
       else           print "<tr>\n";
@@ -362,11 +381,13 @@ END;
       }
       else           print "   <td></td>\n";
 
-      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i\" value=\"$name\" /></td>\n";
-      print "   <td align=\"center\"><input type=\"text\" name=\"problem$i-u\" value=\"$url\" /></td>\n";
-      print "   <td><input type=\"file\" name=\"problem$i-f\" /></td>\n";
-      print "   <td><input type=\"file\" name=\"input$i-f\" /></td>\n";
-      print "   <td><input type=\"file\" name=\"output$i-f\" /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"problem$i\" value=\"$name\" /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"problem$i-u\" value=\"$url\" /></td>\n";
+      print "   <td><input style=\"max-width:200px\" class=\"form-control-file\" type=\"file\" name=\"problem$i-f\" /></td>\n";
+      print "   <td><input style=\"max-width:200px\" class=\"form-control-file\" type=\"file\" name=\"input$i-f\"   /></td>\n";
+      print "   <td><input style=\"max-width:200px\" class=\"form-control-file\" type=\"file\" name=\"output$i-f\"  /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"prereq$i\" value=\"$prereq\" /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"tlimit$i\" value=\"$tlimit\" /></td>\n";
       print "</tr>\n";
    }
 ?>

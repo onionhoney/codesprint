@@ -11,6 +11,7 @@ else {
     // get prereqs for that letter
     // what teamname is associated to this teamid?
     $contest = new Contest($g_configfile, $g_problempath);
+
     $problem_prereqs = $contest->problemprereq($letter);
     $team_solved = array();
     $teamname = $_SESSION["teamid"];
@@ -35,8 +36,8 @@ else {
           fclose($fp);
        }
    }
-   // echo "Team solved: "; print_r($team_solved);
-   // echo "<br>Problem prereqs: "; print_r($problem_prereqs);
+   //echo "Team solved: "; print_r($team_solved);
+   //echo "<br>Problem prereqs: "; print_r($problem_prereqs);
 
     //if not all the prereqs are satisfied, exit
     foreach ($problem_prereqs as $prereq)

@@ -152,7 +152,7 @@ Doing so may cause post data to be resent. Instead, please use the button below.
 //      $flink = "<a href=\"../$g_submitpath$run->team/$run->file\">$run->file</a>";
       $fname = $run->problem . $g_extension[$run->language];
       $flink = "<a href=\"jfetch.php?file=" .
-               urlencode("../$g_submitpath$run->team/$run->file") .
+               urlencode("../$g_sessionpath$run->team/$run->file") .
                "&name=$fname\">$fname</a>";
       $pending = $run->verdict == "U";
 

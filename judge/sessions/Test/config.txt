@@ -1,11 +1,11 @@
 Practice Contest
 judge@example.com
-10 May 2018
+16 May 2018
 12:00 + 9999:00
-30;A;on
+10;A;
 Problem Set Title
-A;                             A;         --
-B;                             B;         A
-C;                             C;         A,B
-D;                             D;         A,B,C
-E;                             E;         A,B,C,D
+Axxsdsdf                      ;A         ;--        ;8         
+B                             ;B         ;A         ;          
+C                             ;C         ;A,B       ;          
+D                             ;D         ;--        ;          
+E                             ;E         ;--        ;          
