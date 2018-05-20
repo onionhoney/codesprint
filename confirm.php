@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<?php print "<title>$g_pagetitle - Confirmation</title>\n"; ?>
+    <?php headerer('Confirmation'); ?>
 </head>
 
 <body>
@@ -17,8 +17,7 @@
 
 <?php navigation("confirm"); ?>
 
-<hr>
-<div align="center">
+<div class='container text-center' style='padding-top:5em;'>
 
 <?php
    // if team is logged in, we get the ID from the session
@@ -35,33 +34,33 @@
       if ($source && $language)
       {
          $tssubmit = $tsstart = $tsend = time();
-         
+
          // get the contest time from the config file
          if ($fp = fopen($g_configfile, "r"))
          {
             flock($fp, LOCK_SH);
-            
+
             // discard title and contact
             fgets($fp); fgets($fp);
-            
+
             // next two lines are date and time
             $cdate = trim(fgets($fp));
             $ctime = trim(fgets($fp));
             list($tsstart, $tsend) = contesttime($cdate, $ctime);
             fclose($fp);
          }
-         
+
          // check contest start and end time
          if ($tsstart <= $tssubmit && $tssubmit < $tsend)
-         {         
-      
+         {
+
             // create the team directory if necessary
             $teamdir = $g_sessionpath.$team;
-            if (!file_exists($teamdir)) 
+            if (!file_exists($teamdir))
             {
                mkdir($teamdir);
                chmod($teamdir, 0770);
-               
+
                // make team "output" and "diff" directories for judge
 //               mkdir($teamdir . "/output");
 //               chmod($teamdir . "/output", 0777);
@@ -73,7 +72,7 @@
             // find the next available filename for this team/problem
             $number = 1;
             do {
-               $shortfile = sprintf("P%s_%02d%s", $problem, $number,            
+               $shortfile = sprintf("P%s_%02d%s", $problem, $number,
                                    $g_extension[$language]);
                $teamfile = $teamdir . "/" . $shortfile;
                //print "Trying file $teamfile.<br>\n";
@@ -85,7 +84,7 @@
             if (move_uploaded_file($tempfile, $teamfile))
             {
                chmod($teamfile, 0660);
-               
+
                // remember the team's preferred language
                $_SESSION["language"] = $language;
 
@@ -105,9 +104,9 @@
                   print "<tr><td>Source:</td><td>$source</td></tr>\n";
                   print "<tr><td>Time:</td><td>$tdelta</td></tr>\n";
                   print "</table>\n";
-                  
+
                   print "<p><i>Note: Do not refresh this page unless you intend to submit the same file again!</i></p>\n";
-                   
+
                    // log the submitter's ip, for security tracking
                    if ($g_logIPs && ($gp = fopen($g_iplogfile, "a")))
                    {
@@ -147,7 +146,7 @@
             print "(Check that you selected the right source file.)<br>\n";
          else
             print "(Make sure you select the right langauge.)<br>\n";
-            
+
          print "<p>Unable to confirm your submission.</p>\n";
       }
    }
@@ -161,7 +160,7 @@
 
 </div>
 
-<?php footer(); ?>
+<?php footer($contest->chost); ?>
 
 </body>
 
