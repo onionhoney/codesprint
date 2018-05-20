@@ -1,10 +1,10 @@
 Practice Contest
 judge@example.com
-16 May 2018
+15 May 2018
 12:00 + 9999:00
 10;A;
 Problem Set Title
-Axxsdsdf                      ;A         ;--        ;8         
+Smallberg's Dilemma           ;A         ;--        ;8         
 B                             ;B         ;A         ;          
 C                             ;C         ;A,B       ;          
 D                             ;D         ;--        ;          

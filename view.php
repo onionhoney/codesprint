@@ -18,6 +18,8 @@ else {
     if ($teamname == "")
         exit("You must login.");
     // Read g_solvedfile
+    if ($contest->tnow < $contest->tstart)
+        exit("Nice try.. think you can access problems before the contest starts?");
     if ($contest->okay)
     {
        if ($fp = fopen($g_solvedfile, "r"))

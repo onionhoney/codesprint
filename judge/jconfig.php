@@ -24,13 +24,13 @@
             if ($_POST["problem".$i])
             {
                $name = stripcslashes($_POST["problem".$i]);
-               $url = $_POST["problem".$i."-u"];
+               $letter = $_POST["problem".$i."-u"];
+               $url = $letter . ".txt";
 
                $filename = $_FILES["problem".$i."-f"]["name"];
 
-               $inputname = ($_FILES["input".$i."-f"]["name"] == "") ? "" : $name . ".in"; //$_FILES["input".$i."-f"]["name"];
-               $outputname = ($_FILES["output".$i."-f"]["name"] == "") ? "" : $name . ".out"; //$_FILES["output".$i."-f"]["name"];
-
+               $inputname = ($_FILES["input".$i."-f"]["name"] == "") ? "" : $letter . ".in"; //$_FILES["input".$i."-f"]["name"];
+               $outputname = ($_FILES["output".$i."-f"]["name"] == "") ? "" : $letter . ".out"; //$_FILES["output".$i."-f"]["name"];
 
                $prereq = $_POST["prereq".$i];
                $tlimit = $_POST["tlimit".$i];
