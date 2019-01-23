@@ -1,5 +1,8 @@
-Test
+2018Team
 Codesprint 17 individual round;Codesprint_individual
 Codesprint 17 team round;Codesprint_team
 Codesprint 17 relay round;Codesprint_relay
 Codesprint 18 Test round;Test
+Codesprint 18 Individual Round;2018Individual
+Codesprint 18 Team Round;2018Team
+Codesprint 18 Warmup;2018Warmup

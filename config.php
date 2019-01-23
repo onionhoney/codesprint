@@ -93,7 +93,7 @@
    $g_official = array();
 
    // The following array defines teams that are in "invisible" mode (ie. guests)
-   $g_invisible = array();
+   $g_invisible = array("System", "haochiencho@gmail.com");
 
    // The following array maps teams to their members
    $g_members = array();

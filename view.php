@@ -24,15 +24,19 @@ else {
     {
        if ($fp = fopen($g_solvedfile, "r"))
        {
+          //print ("trying to open " . $g_solvedfile);
           flock($fp, LOCK_SH);
 
           // read the file
           while ($line = fgets($fp))
           {
              list($s_teamname, $problems) = explode(";", trim($line));
-             if ($s_teamname == $teamname)
+             //print ($s_teamname . $problems);
+             if ($s_teamname == $teamname) {
+                //print ("Found team " . $s_teamname . " , " . $problems);
                 $team_solved = explode(",", $problems);
                 break;
+             }
           }
 
           fclose($fp);
@@ -46,8 +50,10 @@ else {
     {
         if($prereq == "--")
             continue;
-        if(!in_array($prereq, $team_solved))
-            exit("You must first solve [" . implode(',', $problem_prereqs) . "]. You haven't solved " . $prereq);
+        if(!in_array($prereq, $team_solved)) {
+            print_r($team_solved);
+            exit("You must first solve [" . implode(',', $problem_prereqs) . "]. You have solved " . $team_solved . " but haven't solved " . $prereq);
+        }
     }
 
     $title = Problem . " " . $letter;

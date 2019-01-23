@@ -19,6 +19,8 @@ sudo chown www-data:www-data teams.txt
 sudo chown www-data:www-data grade_standalone.pl
 sudo chown -R www-data:www-data data
 
+sudo chmod 777 .
+
 # compile the autojudge
 g++ -std=c++11 -Wall -O2 -o judge judge.cc
 

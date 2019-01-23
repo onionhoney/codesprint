@@ -284,7 +284,7 @@ sub main {
     
     # Parse filename
     
-    if ($FILENAME =~ /(\w+)\.(\w+)/) {
+    if ($FILENAME =~ /(\w+)\.([\w^.]+)$/) {
 	$PROBLEM = $1;
 	$EXT = $2;
     } else {

@@ -20,12 +20,12 @@
          fputs($fp, stripcslashes($_POST["cname"]) . "\n");
 
          // write up to 12 problems to configuration file
-         for ($i = 1; $i <= 6; $i++)
+         for ($i = 1; $i <= 10; $i++)
             if ($_POST["problem".$i])
             {
                $name = stripcslashes($_POST["problem".$i]);
                $letter = $_POST["problem".$i."-u"];
-               $url = $letter . ".txt";
+               $url = $letter;
 
                $filename = $_FILES["problem".$i."-f"]["name"];
 
@@ -48,7 +48,7 @@
                if ($url && $filename)
                {
                   $tempname = $_FILES["problem".$i."-f"]["tmp_name"];
-                  if (!move_uploaded_file($tempname, $g_problempath . $url))
+                  if (!move_uploaded_file($tempname, $g_problempath . $url . '.txt'))
                      $_SESSION["error"] = "<center><p><font color=\"red\">Unable to save file $filename in $g_problempath$url. </font></p></center>\n";
                }
                if ($url && $inputname)
@@ -357,7 +357,7 @@ END;
 </head>
 
 <?php
-   for ($i = 1; $i <= 6; $i++)
+   for ($i = 1; $i <= 10; $i++)
    {
       $line = explode(";", $problems[$i-1]);
       $name = htmlspecialchars(trim($line[0]));

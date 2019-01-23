@@ -22,7 +22,7 @@
 <?php
    // check to see if we want to show invisible teams
    $invisible = in_array($_SESSION["teamid"], $g_invisible);
-   $showhidden = $invisible || $_GET["guest"];
+   $showhidden = false; //$invisible || $_GET["guest"];
 
    $okay = False;
    $final = False;
