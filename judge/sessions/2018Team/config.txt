@@ -1,0 +1,12 @@
+CodeSprintLA Team Round
+codesprintla@gmail.com
+21 May 2018
+17:20 + 05:00
+10;A;on
+Team Round
+Aim Bot                       ;A         ;--        ;8         
+Spam Ping                     ;B         ;A         ;8         
+Volatile Boom Bots            ;C         ;B         ;8         
+Parched Games                 ;D         ;--        ;8         
+Dodging Flyers                ;E         ;D         ;8         
+Catanner                      ;F         ;E         ;8         

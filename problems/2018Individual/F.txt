@@ -1,0 +1,44 @@
+#Dodging Flyers
+
+One sunny day you’re walking on Bruinwalk to your class as usual. However since it’s the beginning of the quarter you find lots of people enthusiastically giving out flyers along the way. Too bad though, you are not in the mood for that, and you want to dodge as many flyers as possible. Let’s assume you are a polite person, and wouldn’t refuse a flyer if you goes within the the range of the person who gives it out. Can you walk past Bruinwalk successfully, i.e. without taking more than one flyer ? 
+Bruinwalk is modeled as a long rectangle with width w and height h, and the flyer-givers are modeled as points inside, each with a certain range of influence modeled as a circle. You yourself is a circle as well, who starts from any point with height 0, and wants to go to any point with height h. There’s no restriction on the shape of your path, other than it must be continuous. If you walk too close to someone, so that your two circles intersect, then you’d have to take a flyer from them. Output ‘yes’ if you can find a path that doesn’t touch anyone, and ‘no’ otherwise.
+
+###Input
+
+The first line of the input consists of a single integer t (1 <= t <= 100), the number of test cases.
+Each test case will have 3 lines:
+The first line will contain four integers, w, the width of Bruinwalk, h, the length of Bruinwalk, R, your radius,
+and n, the total number of flyer-givers out there. ( 0 <= w <= 10^4, 0 <= h <= 10^4，0 <= R <= 10^4, 0 <= n <= 1000  )
+
+The following n lines will contain x_i, y_i, r_i (0 < x_i < w, 0 < y_i < h, r_i <= 10^4), the coordinates of the flyer-givers. 
+
+It is guaranteed that all the circles lie within the rectangle. i.e. there's actually no need to consider the length of Bruinwalk. 
+
+###Output
+Output a line for each test case, either ‘yes’ or ‘no’. 
+
+####Sample Input
+```
+2
+9 20 1 2
+3 6 2
+7 3 1
+
+10 20 1 4
+4 9 3
+3 3 2
+8 4 1
+9 12 1
+```
+
+####Sample Output
+```
+yes
+no
+```
+
+####Explanation 
+
+<img src="images/example1.jpg" width="400">
+<img src="images/example2.jpg" width="400">
+

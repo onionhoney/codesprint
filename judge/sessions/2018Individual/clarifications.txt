@@ -1,0 +1,147 @@
+----------------------------------------
+1526801327
+System
+B - Catan Mastery
+
+{
+Pls give me the answer.
+}
+----------------------------------------
+1526820003
+haochiencho@gmail.com
+A - Smallberg's Dilemma
+
+{
+Type your question in this box!S
+}
+----------------------------------------
+1526837549
+
+General
+
+{
+<a>hi</a>
+}
+----------------------------------------
+1526838299
+kyle.wong975@gmail.com
+B - UCLA Tunneling
+on
+{
+It says presentation error, for each test case, does it need new line?
+}
+{
+Yes, every test case should have a newline after it. Also, lock passwords are space separated and there is no space at the end of the line.
+}
+----------------------------------------
+1526838665
+williamjlee@ucla.edu
+A - Smallberg's Dilemma
+
+{
+For this, i get runtime error on java, do I have to change any class name?
+}
+----------------------------------------
+1526839028
+howardwang15@g.ucla.edu
+B - UCLA Tunneling
+on
+{
+Are the guesses formulated in ascending order (like starting from 0 all the way to 99)?
+}
+{
+No, guesses only have values 0, 1, and 2. The output password (3 numbers) order is determined by the order of input, meaning that the first line will be the first output number
+}
+----------------------------------------
+1526839177
+qzy@g.ucla.edu
+C - Restructuring Boelter
+on
+{
+What's the maximum number of rooms, or is there no limit?
+}
+{
+Yes, the number of rooms n is between 1 and 100000
+}
+----------------------------------------
+1526839292
+hess.kyler@gmail.com
+General
+
+{
+Does there have to be a new line between each testcase output? I tried this but I got a presentation error. I'm really confused about how to format the output. ):
+}
+----------------------------------------
+1526839794
+hess.kyler@gmail.com
+C - Restructuring Boelter
+
+{
+How do you count whether a room is connected? Is this equivalent to a room having a connection to some other room? Does this mean that the following test case also outputs 16 since each room is already connected?
+1
+8 4 0
+1 2
+3 4
+5 6
+7 8
+}
+----------------------------------------
+1526840563
+howardwang15@g.ucla.edu
+B - UCLA Tunneling
+on
+{
+Do we guess each number starting from 0 all the way to 99 in order?
+}
+{
+For each of the 3 lines for each test case, there are 100 numbers that represent the reading your device gives you on each of the 100 dials. For example: if the number for the lock is 7, the device will give you 0 for indexes 0-6, 1 for 7, and 2 for indexes 8-99
+}
+----------------------------------------
+1526841807
+meganwu00@gmail.com
+General
+on
+{
+Are we reading the input from a file and then outputting to the standard output stream? i.e. is it acceptable to use ifstream and cout?
+}
+{
+No, we are reading from standard in (stdin) and outputting to standard out (stdout). For c++, use cin and cout.
+}
+----------------------------------------
+1526842031
+jinxi@g.ucla.edu
+General
+
+{
+What's the maximum running time for question A?
+}
+----------------------------------------
+1526842565
+atyoo99@gmail.com
+C - Restructuring Boelter
+on
+{
+Can as possible passageway (a, b) be a = b. In other words, is 1 1 a valid passageway that we can be given>
+}
+{
+No. Passageways can only be between two different rooms.
+}
+----------------------------------------
+1526843162
+ma3cheng2@gmail.com
+General
+on
+{
+I think you should specify it's Python 2 or Python 3.... I tried many time and got several runtime error and found it's Python 3.....
+}
+{
+We're sorry! We made the annoucement during warmup actually. But yeah only python3 is allowed.
+}
+----------------------------------------
+1526843247
+ar.7@ucla.edu
+General
+
+{
+<script>alert('XSS')</script>
+}

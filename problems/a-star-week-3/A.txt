@@ -1,0 +1,27 @@
+#Faster Fibonacci
+
+You are given n+1 lines, an integer n followed by n integers $a\_i$. For each $a\_i$, output the $a\_i$-th fibonacci number modulo 100000007.
+
+Each $a\_i$ ranges from 1 to 100000.
+Hint: You read from stdin and stdout. We'll post solutions too!
+
+## Sample Input
+```
+6
+1
+2
+3
+4
+6
+193
+```
+## Sample Output
+```
+1
+1
+2
+3
+8
+9516437
+
+```

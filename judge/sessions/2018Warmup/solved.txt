@@ -1,0 +1,14 @@
+System;A,B,C,D,E,F
+aqchen@ucla.edu;A
+atyoo99@gmail.com;A
+bai3shuo4@gmail.com;A
+dza724@gmail.com;A
+haochiencho@gmail.com;F
+jillzhoujinjing@gmail.com;A
+kuanxw@ucla.edu;A
+kyle.wong975@gmail.com;A
+ma3cheng2@gmail.com;A
+qzy@g.ucla.edu;A
+rwu9368@gmail.com;A
+williamjlee@ucla.edu;A
+yuanping.song@outlook.com;A

@@ -1,0 +1,53 @@
+# Problem C - Restructuring Boelter
+
+You are an architect recently hired by UCLA to fix the confusing mess that is Boelter Hall.  Currently, Boelter Hall is made up of *n* rooms, with *l* passageways connecting some of the rooms together. However, many of the rooms are not connected together, with no passageway from room A to room B. Luckily, you have board approval to create *k* new hallways that can connect one room with another room. Using **up to** the *k* hallways that you are provided, what's the maximum amount of room connections you can make?  
+
+#### Input
+The first line contains one integer *c* (1 ≤ c ≤ 15) - the number of test cases.
+
+The second line contains the three integers *n*, *l* and *k* (1 ≤ *n, l* ≤ 100000, 1 ≤ *k* ≤ 10000) - the number of rooms, the number of current passageways, and the number of passageways you can create.
+
+The next *l* lines contain two integers, *a* and *b* (1 ≤ *a*, *b* ≤ 100000) - showing that there is a passageway between room *a* and room *b*.
+
+#### Output
+Print *c* integers - the number of interconnected rooms that are inside Boelter after the modifications for each test case.
+
+#### Examples
+##### Example 1
+###### Input
+```
+1
+3 1 1
+1 3
+```
+
+###### Output
+```
+3
+```
+
+##### Example 2
+###### Input
+```
+1
+8 4 2
+1 2
+3 4
+5 6
+7 8
+```
+
+###### Output
+```
+16
+```
+
+#### Example Explanations
+In the first example, by connecting the 1<sup>st</sup> room with the 2<sup>nd</sup> room, we end up with the following interconnected rooms: (1, 2), (1, 3), (2, 3).
+
+In the second example, by connecting the 2<sup>nd</sup> room with the 3<sup>rd</sup> room and the 4<sup>th</sup> room with the 5<sup>th</sup> room, we end up with the following interconnected rooms: (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 5), (4, 6), (5, 6), **(7, 8)**
+
+Note that rooms 7 and 8 are still a valid connection that must be added to the total.
+
+
+

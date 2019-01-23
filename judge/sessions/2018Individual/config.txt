@@ -1,0 +1,12 @@
+CodeSprintLA Individual Round
+codesprintla@gmail.com
+20 May 2018
+10:35 + 02:00
+15;A;on
+Individual Round
+Smallberg's Dilemma           ;A         ;--        ;8         
+UCLA Tunneling                ;B         ;--        ;5         
+Restructuring Boelter         ;C         ;--        ;5         
+Elevators                     ;D         ;--        ;8         
+Simple Banach-Mazur           ;E         ;--        ;5         
+T.Rojan's Cheat$heet          ;F         ;--        ;3         

@@ -1,0 +1,16 @@
+System;test;-1;System Test;Admin
+test.test;test;1;test;tester
+Retrievers;56099415;1;Retrievers;
+mulholland;52106168;1;mulholland;
+Team_last_minute;90249231;1;Team_last_minute;
+Coding_V;25550307;1;Coding_V;
+404_Brain_Not_Found;47238777;1;404_Brain_Not_Found;
+hongliyu;23676361;1;hongliyu;
+Too_Git_To_Quit;17147343;1;Too_Git_To_Quit;
+Teavana;57996850;1;Teavana;
+KP;36467837;1;KP;
+Noobs;12640669;1;Noobs;
+Orange;20991825;1;Orange;
+KW;82511912;1;KW;
+HK2;36467837;1;HK2;
+Jeffrey;jeffrey;0;Jeffrey;

@@ -1,0 +1,35 @@
+----------------------------------------
+1526848461
+Retrievers
+General
+
+{
+I want to use Prolog to write my programs
+}
+----------------------------------------
+1526849061
+404_Brain_Not_Found
+D - ?????
+
+{
+Why can't you take two tributes from the second district for test case 2?
+}
+----------------------------------------
+1526849250
+KP
+D - Parched Games
+
+{
+sample input doesn't match the k<n/2 requirement
+}
+----------------------------------------
+1526853410
+test.test
+General
+on
+{
+E
+}
+{
+Successful means not touching a single flyer at all.
+}

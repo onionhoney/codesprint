@@ -1,0 +1,81 @@
+# Elevators
+
+Everyone at UCLA is always complaining about people on the second or third floor using the elevators. Sarah is getting sick and tired of this subjective conversation, and would like to know: given a set of people who want to get to some floor, who should use the elevator and who should use the stairs, in order to minimize the time it takes for everyone to reach their destination?
+Sarah lives in Hedrick, so there is only ever 1 elevator working at a time. The elevator is magical, so it can hold an unlimited number of people. There are $f$ floors. It takes $a$ seconds for the elevator to go up 1 floor, and an additional $b$ seconds for every floor the elevator stops at (note that if you are getting off on that floor, you do not wait an additional $b$ seconds). Walking up the stairs takes $c$ seconds for every floor. The elevator will visit every floor that is the final destination of a person inside it. There are $p$ people (all initially on floor 1), and person $i$ wants to visit floor $a_i$. At the beginning, the elevator is on floor 1, and everyone either gets on an elevator or takes the stairs. What is the minimum amount of time it takes for everyone to reach their destination?
+
+### Input
+The first line of the input consists of a single integer $t$ ($1 \leq t \leq 100$), the number of test cases.
+
+Each test case will have 6 lines:
+
+The first line of each test case will be a single integer, $a$ ($1 \leq a \leq 20$), the number of seconds it takes for the elevator to go up 1 floor.
+
+The second line of each test case will be a single integer, $b$ ($1 \leq b \leq 20$), the number of seconds it an elevator takes when it stops at a floor.
+
+The third line of each test case will be a single integer, $c$ ($1 \leq c \leq 20$), the number of seconds it takes for someone to walk up one flight of stairs.
+
+The fourth line of each test case will be a single integer, $f$ ($1 \leq f \leq 100000$), the number of floors.
+
+The fifth line of each test case will be a single integer, $p$ ($1 \leq p \leq 100000$), the number of people.
+
+The sixth line of each test case will contain p space separated integers, $a_1$ through $a_p$ ($1 \leq a_1,\ldots,a_p \leq f$), the floors people want to go to.
+
+### Output
+Output a single number for each test case, the minimum amount of time it takes for everyone to end up in their destination.
+
+### Example 1
+#### Sample input
+```
+1
+1
+10
+12
+5
+2
+2 5
+```
+#### Sample output
+```
+12
+```
+### Example 2
+#### Sample input
+```
+1
+1
+10
+17
+5
+2
+2 5
+```
+#### Sample output
+```
+14
+```
+### Example 3
+#### Sample input
+```
+2
+2
+5
+10
+9
+4
+3 7 3 9
+17
+5
+1
+9
+4
+3 7 3 9
+```
+#### Sample output
+```
+21
+8
+```
+#### Explanation
+In Example 1, the person going to floor 2 takes the stairs (12 seconds to walk up 1 flight of stairs), and the person going to floor 5 takes the elevator (4 seconds for the elevator to go up 4 floors). So it will take 12 seconds for everyone to get to their destination.
+
+In Example 2, both people take the elevator. The person going to floor 2 arrives in 1 second (1 second for the elevator to go up 1 floor), and the person going to floor 5 arrives in 14 seconds (4 seconds for the elevator to go up 4 floors, 10 additional seconds for stopping at floor 2). So it will take 14 seconds for everyone to get to their destination.

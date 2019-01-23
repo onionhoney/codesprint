@@ -1,0 +1,71 @@
+# Spam Ping 
+
+You are a toxic player, and have been chat restricted! Instead of freely being able to flame your team through chat, you are now only able to communicate through pings. Unfortunately, you are also limited in the amount of pings you can make, and can only ping *n* times.
+
+In order to make the best use of your *n* pings, you have analyzed your *t* teammates and researched the effectiveness of the *p* ping types. You have found that you are able to give values to your teammates that correspond with their mental instability. You have also found that you are able to give values to the different ping types that correspond with their tilting strength. By directing a ping at a certain player, you hypothesize that you are able to cause an unhappiness level equivalent to the maximum between the chosen ping strength and the chosen person's mental instability.
+
+However, if you constantly use a given ping type or target a given player, your team will begin to grow immune to your harassment. As such, every time you use a ping that ping's tilting strength is reduced by one. The same happens when you target a player, where every time you target a player their mental instability is reduced by one. Additionally, if over the course of the game a player's mental instability or a ping's tilting strength goes to 0, you are unable to use it for the rest of the game.
+
+Under these conditions, find the maximum level of unhappiness you can impart on your team.
+
+#### Input
+The first line contains one integer *c* (1 ≤ c ≤ 15) - the number of test cases.
+
+The second line contains three integers: *n, p*, and *q* (1 ≤ n ≤ 50000, 1 ≤ p, q ≤ 1000) - the number of pings you can use, the number of teammates you have, and the number of ping types you have at your disposal.
+
+The third line contains *p* integers a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>p</sub> (1 ≤ $a_i$ ≤ 1000) the i<sup>th</sup> of them representing the i<sup>th</sup> player's mental instability level.
+
+The fourth line contains *q* integers b<sub>1</sub>, b<sub>2</sub>, ..., b<sub>q</sub> (1 ≤ b<sub>i</sub> ≤ 1000) the i-th of them representing the i-th ping type's tilting strength.
+
+#### Output
+Output c integers (newline-seperated) - the maximum level of unhappiness that you have caused.
+
+#### Examples
+##### Example 1
+###### Input
+```
+1
+5 4 4
+10 8 1 4
+2 7 11 1
+```
+
+###### Output
+```
+49
+```
+
+##### Example 2
+###### Input
+```
+1
+10 3 1
+1 2 3
+6
+```
+
+###### Output
+```
+21
+```
+
+##### Example 3
+###### Input
+```
+1
+2 2 2
+6 6 
+3 6
+```
+
+###### Output
+```
+12
+```
+
+#### Example Explanations
+For the first example, an optimal solution is to use the 1st player and 2nd ping twice, and 4th player and 3rd ping three times. If this is done, unhappiness = max(10, 7) + max(9, 6) + max(11, 4) + max(10, 3) + max(9, 2) = 10 + 9 + 11 + 10 + 9 = 49.
+
+For the second example, the optimal solution is to use the players with the first ping type. Note that when either one of them goes to zero, it is no longer to be used. If this is done, unhappiness  = max(3, 6) + max(2, 5) + max(2, 4) + max(1, 3) + max(1, 2) + max (1, 1) + N/A = 6 + 5 + 4 + 3 + 2 + 1 = 21.
+
+For the third solution, an optimal solution is to use the first player with the first ping, and the second player with the second ping. If this is done, unhappiness = max(6, 3) + max(6, 6) = 12.

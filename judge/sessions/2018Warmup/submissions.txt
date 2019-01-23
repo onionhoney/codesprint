@@ -1,0 +1,16 @@
+00:11,System,A,C++,PA_01.cc
+00:20,System,A,C++,PA_02.cc
+00:22,aqchen@ucla.edu,A,C++,PA_01.cc
+00:26,qzy@g.ucla.edu,A,C++,PA_01.cc
+00:34,bai3shuo4@gmail.com,A,C++,PA_01.cc
+00:34,jillzhoujinjing@gmail.com,A,Python,PA_01.py
+00:34,rwu9368@gmail.com,A,C++,PA_01.cc
+00:35,yuanping.song@outlook.com,A,C++,PA_01.cc
+00:36,kyle.wong975@gmail.com,A,C++,PA_01.cc
+00:38,ar.7@ucla.edu,A,Python,PA_01.py
+00:38,williamjlee@ucla.edu,A,Java,PA_01.java
+00:38,atyoo99@gmail.com,A,C++,PA_01.cc
+00:39,ar.7@ucla.edu,A,Python,PA_02.py
+00:39,dza724@gmail.com,A,C++,PA_01.cc
+00:39,ma3cheng2@gmail.com,A,Python,PA_01.py
+00:39,kuanxw@ucla.edu,A,C++,PA_01.cc

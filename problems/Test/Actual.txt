@@ -1,0 +1,47 @@
+# Smallberg's Dilemma
+
+Amongst many things, Smallberg loves to teach. He found that the most effective way to teach students is through physical demonstrations (like jumping up and down). 
+
+Smallberg is teaching CS 31 and CS 32 this quarter, and he wants every student out of his 2 classes to understand the topic. 
+
+Through years of experience, he learned that after each jump, exactly one more student in the class is able to comprehend the topic.
+
+The CS department gives Smallberg a list of class sizes that he can pick from for each of his 2 classes.
+
+Smallberg does not have great stamina, so he asks you to write a program to pick the sizes where no students in his class feels lost.
+
+You are guaranteed that the CS department gave Smallberg at least one pair options that lets him teach all his students.
+
+### Input
+
+The first line contains $t(1 \leq t \leq 100)$ -- number of test cases
+
+The second line contains $n(2 \leq n \leq 1000)$ -- the number of times that Smallberg can jump
+
+The third line contains numbers $m_1$ and $m_2$ where $(1 \leq m_1, m_2 \leq 100)$ -- the number of options Smallberg received for CS 31 and CS 32.
+
+The fourth line contains numbers $a_1, a_2, ..., a_n(1 \leq a_i \leq 1000)$ -- the class sizes for CS 31 that Smallberg can choose from.
+
+The fifth line contains numbers $b_1, b_2, ..., b_n(1 \leq b_i \leq 1000)$ -- the class sizes for CS 32 that Smallberg can choose from.
+
+### Output
+
+Print one integer -- the maximum number of students that Smallberg can teach
+
+Example
+Input
+2
+20
+2 3
+4 13
+3 6 11
+100
+3 4
+40 20 80
+5 25 50 65
+
+Output
+19
+90
+
+Explanation: For the first test case, Smallberg would pick 13 as the class size for CS 31 and 6 as the class size for CS 32. For the second test case, Smallberg would pick 40 as the class size for CS 31 and 50 as the class size for CS 32.

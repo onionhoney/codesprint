@@ -1,7 +1,7 @@
-Practice Contest
-judge@example.com
-16 January 2017
-12:00 + 3:00
-30;A;on
-Problem Set Title
-A;                             A.txt
+UCLA Contest
+codesprintla@gmail.com
+20 January 2019
+10:35 + 2000:00
+15;A;on
+Project A* Advanced Track Week 3
+Warmup                        ;A         ;--        ;8         

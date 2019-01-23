@@ -1,0 +1,126 @@
+----------------------------------------
+1526801327
+System
+B - Catan Mastery
+
+{
+Pls give me the answer.
+}
+----------------------------------------
+1526820003
+haochiencho@gmail.com
+A - Smallberg's Dilemma
+
+{
+Type your question in this box!S
+}
+----------------------------------------
+1526837549
+
+General
+
+{
+<a>hi</a>
+}
+----------------------------------------
+1526838299
+kyle.wong975@gmail.com
+B - UCLA Tunneling
+
+{
+It says presentation error, for each test case, does it need new line?
+}
+----------------------------------------
+1526838665
+williamjlee@ucla.edu
+A - Smallberg's Dilemma
+
+{
+For this, i get runtime error on java, do I have to change any class name?
+}
+----------------------------------------
+1526839028
+howardwang15@g.ucla.edu
+B - UCLA Tunneling
+
+{
+Are the guesses formulated in ascending order (like starting from 0 all the way to 99)?
+}
+----------------------------------------
+1526839177
+qzy@g.ucla.edu
+C - Restructuring Boelter
+
+{
+What's the maximum number of rooms, or is there no limit?
+}
+----------------------------------------
+1526839292
+hess.kyler@gmail.com
+General
+
+{
+Does there have to be a new line between each testcase output? I tried this but I got a presentation error. I'm really confused about how to format the output. ):
+}
+----------------------------------------
+1526839794
+hess.kyler@gmail.com
+C - Restructuring Boelter
+
+{
+How do you count whether a room is connected? Is this equivalent to a room having a connection to some other room? Does this mean that the following test case also outputs 16 since each room is already connected?
+1
+8 4 0
+1 2
+3 4
+5 6
+7 8
+}
+----------------------------------------
+1526840563
+howardwang15@g.ucla.edu
+B - UCLA Tunneling
+
+{
+Do we guess each number starting from 0 all the way to 99 in order?
+}
+----------------------------------------
+1526841807
+meganwu00@gmail.com
+General
+
+{
+Are we reading the input from a file and then outputting to the standard output stream? i.e. is it acceptable to use ifstream and cout?
+}
+----------------------------------------
+1526842031
+jinxi@g.ucla.edu
+General
+
+{
+What's the maximum running time for question A?
+}
+----------------------------------------
+1526842565
+atyoo99@gmail.com
+C - Restructuring Boelter
+
+{
+Can as possible passageway (a, b) be a = b. In other words, is 1 1 a valid passageway that we can be given>
+}
+----------------------------------------
+1526843162
+ma3cheng2@gmail.com
+General
+
+{
+I think you should specify it's Python 2 or Python 3.... I tried many time and got several runtime error and found it's Python 3.....
+}
+----------------------------------------
+1526843247
+ar.7@ucla.edu
+General
+
+{
+<script>alert('XSS')</script>
+}
