@@ -1,19 +1,20 @@
 ## CodeSprint Judge System (Adapted from UCPCCC)
 
-Changes I made last year: 
-Supported switching between sessions. 
-Supported giving problems different weight. 
+Change log (by Jeffrey Sun)
 
+Codesprint 2017
 
-Todos this year:
+- Supported switching between sessions. 
+- Supported giving problems different weight. 
 
-Link this site to our homepage more smoothly. 
+Codesprint 2018
 
-Make the login system more natural.
-(instead of us generating everything for them, maybe create a frontend for them to give us their pass when they are registering? )
+- Link our promote page with the contest page more smoothly. 
 
-Support Python maybe? (would be hard)
+- Support Python3 and Java
 
-Make scoring easier? (combine individual and team score and display them)
+- Reworked UI (by Jennie Zheng)
 
+- Made session switching easier
 
+- Add "unlock" mechanism (by Jeffrey Yun)
