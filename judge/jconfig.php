@@ -4,10 +4,19 @@
    include("common.php");
 
    // process the POST data right away if any, and send a refresh header
-   if ($_POST["contest"])
+   if ($_POST["contest"] && false)
    {
+      echo '<script language="javascript">';
+      echo 'alert("'. $_SESSION["current_session"] . '")';
+      echo '</script>';
+   }
+      //header("Location: jconfig.php");
+      //exit("Debug information.");
+   if ($_POST["contest"]) 
+   {
+      $current_configfile = $_SESSION["current_session"] . "config.txt";
       // write the contest information to file
-      if ($fp = fopen($g_configfile, "w"))
+      if ($fp = fopen($current_configfile, "w"))
       {
          flock($fp, LOCK_EX);
          fputs($fp, stripcslashes($_POST["title"]) . "\n");
@@ -91,7 +100,8 @@
    if ($_POST["teams"])
    {
       // save team information to team file
-      if ($fp = fopen($g_teamfile, "w"))
+      $current_teamfile = $_SESSION["current_session"] . "teams.txt";
+      if ($fp = fopen($current_teamfile, "w"))
       {
          flock($fp, LOCK_EX);
          for ($i = 1; $i <= 100; $i++)
@@ -164,6 +174,10 @@
 
 <p><b><big>Session Switching</big></b></p>
 
+<?php
+   print "<p>You are working on session ".$g_sessionpath."\n";
+   $_SESSION["current_session"] = $g_sessionpath;
+?>
 <?php
    if (isset($_SESSION["saveds"]))
    {
