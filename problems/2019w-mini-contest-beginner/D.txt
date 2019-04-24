@@ -1,0 +1,47 @@
+# Alcatraz
+
+You are the store owner at NongShim Shin Cup Noodle Soup Traders at Pier 39. Given your expertise in noodle soup trading, the manager of Alcatraz Prison has asked for your help. The prisoners wish to trade soup cups within themselves, but obviously they don’t trust each other. Hence, you have your job.
+
+You have n prisoners who want to sell/buy Soup Cups. Each prisoner wants to buy OR sell (not both) exactly one Soup Cup at a fixed price of $1. You are guaranteed that there are as many prisoners who want to sell as there are to buy.
+
+You start the day with 0 Soup Cups. Dealing with exactly one prisoner at any given time, how many ways can you cater to the buying/selling needs of the prisoners without ever running out of Soup Cups in the process?
+
+### Input
+The first line of the input consists of a single integer $t$ ($1 \leq t \leq 500$), the number of test cases. 
+
+Each of the next $t$ will contain one test case:
+
+The line will contain the value of $n$ ($2 \leq n \leq 26$), which is the number of prisoners. 
+
+### Output
+Output a integer (followed by a new line) for each test case, which represents number of ways you can carry out the trading process.
+
+### Example 1
+#### Sample input
+```
+1
+
+2
+```
+#### Sample output
+```
+1
+```
+### Example 2
+#### Sample input
+```
+2
+2
+4
+```
+#### Sample output
+```
+1
+2
+```
+
+#### Explanation
+On the first example, you must first buy from a prisoner before you can sell to the next prisoner. Hence, there is only one way of doing this.
+
+On the second example, for the second test case, there are only two possible ways to do this: BBSS and BSBS (B-Buy, S-Sell).
+

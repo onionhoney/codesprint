@@ -5,4 +5,6 @@ Codesprint 18 Test round;Test
 Codesprint 18 Individual Round;2018Individual
 Codesprint 18 Team Round;2018Team
 Codesprint 18 Warmup;2018Warmup
-Project A* 18 Week 3;a-star-week-3
+Project A* 19 Week 3;a-star-week-3
+Project A* 19 Mini Contest Beginner's Track;2019w-mini-contest-beginner
+Project A* 19 Mini Contest Advanced's Track;2019w-mini-contest-advanced

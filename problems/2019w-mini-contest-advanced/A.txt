@@ -1,0 +1,45 @@
+# Abstract Art
+
+Smavid A. Dallberg is drawing on a large paper grid. As a master of SAD modern art, Smavid only draws and erases in filled rectangles that have sides parallel to the axes of the grid. For his upcoming contest, he has drawn and erased a sequence of $0 \leq n \leq 100$ rectangles. Erasing a rectangle will erase only the parts of the paper that have been drawn on. To see how much he has drawn currently, Smavid wants to determine the total area that his rectangles take up on the paper. The paper grid has horizontal width of 100 and vertical height of 100.
+
+Extra clarification: Smavid may draw over the same part of the paper multiple times. Erasing a blank part of the paper does not change the paper.
+
+### Input
+
+The first line of the input is T, the number of test cases.
+
+For each test case, the first line is $n$, the number of rectangles drawn or erased.
+The next $n$ lines contains the details of each rectangle. The first number on the line is either 1, a drawn rectangle or 0, an erased rectangle. Given that the bottom left corner of the paper is $\(0, 0\)$, and the top right corner is $\(X, Y\)$, the rest of the line will contain the bottom left x and y coordinates of the rectangle respectively followed by the top right x and y coordinates of the rectangle respectively.
+
+### Output
+
+For each of the T test cases, the output is one integer, the area of that the rectangles cover on the grid. There should be T lines of output; each output is on a separate line.
+
+#### Sample Input
+```
+2
+1
+1 0 0 100 100
+3
+1 0 0 50 50
+0 0 0 1 1
+1 50 50 100 100
+```
+#### Sample Output
+```
+10000
+4999
+```
+
+#### Reading in Input (Example)
+```
+int t;
+int n;
+int draw, x1, y1, x2, y2;
+for (int i = 0; i < t; i++) {
+    cin >> n;
+    for (int j = 0; j < n; j++) {
+        cin >> draw >> x1 >> y1 >> x2 >> y2;
+    }
+}
+```

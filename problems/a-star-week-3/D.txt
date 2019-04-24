@@ -1,0 +1,52 @@
+# Knapsack
+
+You are given a set of $n$ items where each item $i$ has a nonnegative weight $w_i$ and value $v_i$. Given a backpack with capacity $W$, find the subset $S$ of maximum value that can be fit into the backpack, such that each item may only be added to the backpack 0 or 1 times 
+
+### Input
+The first line of the input consists of a single integer $t$ ($1 \leq t \leq 500$), the number of test cases.
+
+Each test case will have 2 lines:
+
+The first line of each test case will be two integers: $n$ ($0 \leq n \leq 17$), the number of items, and $W$, the capacity.
+
+The next $n$ lines will contain $2$ space separated integers, the weight $w_i$ and the value $v_i$ of the $i$th item.
+
+### Output
+Output a single integer (followed by a new line) for each test case, representing the maximum value that can be fit into the backpack.
+
+### Example 1
+#### Sample input
+```
+1
+1 10
+36 46
+```
+#### Sample output
+```
+0
+```
+### Example 2
+#### Sample input
+```
+1
+1 40
+43 95
+```
+#### Sample output
+```
+0
+```
+### Example 3
+#### Sample input
+```
+2
+1 90
+50 44
+1 160
+57 46
+```
+#### Sample output:
+```
+44
+46
+```

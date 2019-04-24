@@ -1,0 +1,40 @@
+# Balanced Brackets
+
+Given a string S, check if the string is balanced or not.
+
+A string is balanced if every bracket in the string is matched to its pair.
+(,),{,},[,] are considered as brackets.
+
+    -The given string is never empty.
+    -The string consists only brackets or English alphabet letters.
+    -If there is no brackets in the string, it is balanced.
+    -The string does not include space.
+    -The length of the string does not exceed 2000. 
+
+### Input
+The first line of input is the number of test cases, T. For each test case, the first line should be string S.
+### Output
+For each test case, you should output boolean values (true if the string is balanced, false if the string is not balanced)
+
+### Example 1
+#### Sample Input
+```
+1
+(as{dfi)fnl}
+```
+#### Sample Output
+```
+false
+```
+### Example 2
+#### Sample Input
+```
+2
+(dfev[kdnf)
+{dkinf(ingi)dbue}
+```
+#### Sample Output
+```
+false
+true
+```

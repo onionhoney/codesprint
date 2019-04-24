@@ -1,0 +1,38 @@
+# Überwatch (GCPC 2017)
+
+The game is observed over $n$ time slices. The ultimate attack is initially not charged and requires
+$m$ time slices to charge. This first possible use of the ultimate attack is therefore in the ($m$+1)-th
+time slice. If the ultimate attack is used in the $i$-th time slice, it immediately begins charging
+again and is ready to be fired in the ($i + m$)-th time slice.
+
+### Input
+The input consists of:
+• one line with two integers n and m, where
+– $n$ ($1 ≤ n ≤ 300 000$) is the game duration;
+– $m$ ($1 ≤ m ≤ 10$) is the time needed to charge the ultimate attack in time slices.
+• one line with $n$ integers $x_i$ ($0 ≤ x_i ≤ 32$) describing the number of opponents in view
+during a time slice in order.
+
+### Output
+Output the maximum number of opponents you can defeat.
+
+### Example 1
+#### Sample input
+```
+4 2
+1 1 1 1
+```
+#### Sample output
+```
+1
+```
+### Example 2
+#### Sample input
+```
+9 3
+1 1 2 2 3 2 3 2 1
+```
+#### Sample output
+```
+5
+```

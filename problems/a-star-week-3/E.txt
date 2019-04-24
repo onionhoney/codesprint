@@ -1,0 +1,56 @@
+# Simple Banach-Mazur
+
+Two people, Alice and Bob, are playing a game on an array of size $2^n$. Every element in the array is either an A or a B. On the first turn, Alice chooses a contiguous subarray of exactly half the size of the original array. On the second turn, Bob chooses a contiguous subarray of exactly half the size of the new array. Play alternates in this fashion until only one element remains. If it is an A, Alice wins, and if it is a B, Bob wins. Assuming both players play optimally, who wins?
+
+### Input
+The first line of the input consists of a single integer $t$ ($1 \leq t \leq 500$), the number of test cases.
+
+Each test case will have 2 lines:
+
+The first line of each test case will be a single integer $n$ ($0 \leq n \leq 17$), the number of turns in the game. (Note that the size of the array will be $2^n$)
+
+The second line will contain $2^n$ space separated characters (either 'A' or 'B') denoting who would win if the game ended on that element.
+
+### Output
+Output a single character (followed by a new line) for each test case, representing the player who, if they play optimally, is guaranteed to win.
+
+### Example 1
+#### Sample input
+```
+1
+2
+B A A B
+```
+#### Sample output
+```
+A
+```
+### Example 2
+#### Sample input
+```
+1
+3
+A A B A B A A B
+```
+#### Sample output
+```
+A
+```
+### Example 3
+#### Sample input
+```
+2
+2
+B B A B
+3
+A B B A B B A B
+```
+#### Sample output:
+```
+B
+B
+```
+#### Explanation
+On the first example, Alice can choose the subarray AA on her first turn, and no matter what Bob chooses, A will be the last element.
+
+On the third example, for the second test case, no matter what contiguous subarray of length 4 Alice chooses (ABBA, BBAB, BABB, ABBA, BBAB), Bob will be able to choose a subarray of BB, so Alice will have to choose B on the next turn.

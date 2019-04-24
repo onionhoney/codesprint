@@ -1,0 +1,5 @@
+A data/A.in			data/A.out			1
+A data/A.in			data/A.out			1
+A data/A.in			data/A.out			1
+A data/A.in			data/A.out			1
+

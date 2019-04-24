@@ -1,0 +1,46 @@
+# Plinko
+
+Alice is playing a game of Plinko, played by dropping a chip down a board of pegs. The board has n rows. The first row has m spaces, the second row has m+1 spaces, the third row has m spaces, and in general the odd rows have m spaces and the even rows have m+1 spaces. For odd rows (those with m spaces), the spaces are labeled 2, 4, 6, ..., 2m-2, 2m. For even rows (those with m+1 spaces), the spaces are labeled 1, 3, 5, ..., 2m-1, 2m+1.
+When dropping from row i to row i+1, if the chip is in space j, it will fall to space j-1 or space j+1 with equal probability, unless $j-1 \leq 0$ or $j+1 \geq 2m+2$, in which case it drops to the only possible space.
+However, some spaces contain black holes. There are $b$ black holes, and if a chip falls in a black hole, Alice must start over. If Alice always starts at space $s$, which space is it most likely to fall to in the nth row? If the chip will never fall to the nth row, output -1. If multiple spaces have the same probability, output all of them in numerical order.
+
+### Input
+The first line of the input consists of a single integer $t$ ($1 \leq t \leq 50$), the number of test cases.
+
+For each test case:
+
+The first line of each test case will be the four integers $n$ ($2 \leq n \leq 1000$), the number of rows, $m$ ($1 \leq m \leq 1000$), the number of spaces in the first row, $s$ ($2 \leq s \leq 2m$, $s$ even), the starting space of the chip, and $b$ ($1 \leq b \leq 1000$), the number of black holes.
+
+The next $b$ lines will each contain a pair of space separated integers, where the ith pair corresponds to the row and space of the ith black hole (the row will be at least 2).
+
+### Output
+Output the spaces in the nth row where the chip has the highest probability of landing there.
+
+### Example 1
+#### Sample input
+```
+1
+2 2 2 0
+```
+#### Sample output
+```
+1 3
+```
+### Example 2
+#### Sample input
+```
+3
+2 2 2 1
+2 1
+3 2 2 1
+2 1
+2 1 2 2
+2 1
+2 3
+```
+#### Sample output
+```
+3
+2 4
+-1
+```

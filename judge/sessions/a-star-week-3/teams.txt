@@ -1,0 +1,7 @@
+guest;guest;-1;;
+jacob;jacob;1;jacob;jacob
+cindy;abc;1;;
+whatever;whatever;1;;
+unique;unique;1;;
+lucas;lucas;0;;
+anything;anything;1;;

@@ -1,0 +1,11 @@
+UCLA Contest
+codesprintla@gmail.com
+20 January 2019
+10:35 + 20:00
+15;A;on
+Project A* Advanced Track Week 3
+Warmup                        ;A         ;--        ;8         
+Uberwatch                     ;B         ;--        ;8         
+Number Pyramid                ;C         ;--        ;8         
+Knapsack                      ;D         ;--        ;8         
+Simple Banach-Mazur           ;E         ;--        ;8         

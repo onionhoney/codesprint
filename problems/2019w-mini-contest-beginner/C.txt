@@ -1,0 +1,30 @@
+# An Integer's Parent
+
+An integer $n$ has a kid which follows this rule: 
+
+- If $n$ is nonpositive: $kid(n) = 1$
+- Else if $n$ is odd: $kid(n) = kid(n-1) + kid(n-3)$
+- Else if $n$ is even: $kid(n) = kid(n/2) + kid(n-2) + kid(n-4)$
+
+Given a kid $m$ where $10^{19} > m > 1$ (hint: use long long instead of int), find its smallest parent. If the kid has no parents, then return -1.
+
+### Input
+
+The input will be in the form of a number $t$ denoting the number of test cases, followed by $t$ lines each with a single integer $m$.
+
+### Output
+
+Output the solution as $t$ lines, with one solution on each line. 
+
+#### Sample Input
+```
+2
+3
+35949 
+```
+
+#### Sample Output
+```
+-1
+33
+```

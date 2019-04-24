@@ -1,0 +1,7 @@
+System;test;-1;System Test;Admin
+user1;user1;0;User 1;
+user2;user2;0;User 2;
+user3;user3;0;User 3;
+guest;guest;0;guest;
+ellie;ellie;1;ellie;
+jayden;jayden;0;jayden;

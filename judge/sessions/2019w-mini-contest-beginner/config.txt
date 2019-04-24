@@ -1,0 +1,11 @@
+UCLA Contest1
+codesprintla@gmail.com
+28 February 2019
+18:15 + 2001:00
+15;A;on
+Project A* Beginner Track Week 3
+Abstract Art                  ;A         ;--        ;1         
+Reorder Strings               ;B         ;--        ;1         
+Parenting Integers            ;C         ;--        ;1         
+The Alcatraz Problem          ;D         ;--        ;5         
+Balanced Brackets             ;E         ;--        ;1         

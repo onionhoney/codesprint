@@ -1,0 +1,26 @@
+# Reorder String 
+
+Take a string X0, X1, X2, X3, X4, X5...Xn-1.
+
+- If n is odd: Reorder the string as X1, X3, X5... Xn-2, Xn-1, Xn-3, X4, X2, X0
+- Else: Reorder the string as X1, X3, X5... Xn-1, Xn-2, Xn-4, X4, X2, X0
+
+### Input
+
+The input will be in the form of a number $t$ denoting the number of test cases, followed by $t$ lines each with a single string $s$ of length $n$ ($0 \leq n \leq 100000$).
+
+### Output
+
+Output the solution as $t$ lines, with one solution on each line. 
+
+#### Sample Input:
+```
+2
+abcde
+catter
+```
+#### Sample Output:
+```
+bdeca
+atretc
+```
