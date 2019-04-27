@@ -18,3 +18,9 @@ Codesprint 2018
 - Made session switching easier
 
 - Add "unlock" mechanism (by Jeffrey Yun)
+
+Codesprint 2019
+
+- Add a script that helps create new sessions (in judge/new_session.sh)
+
+- Add UI to make problem value setting easier 
