@@ -67,7 +67,11 @@
                if (in_array($team, $g_official))
                   $teamname = "<b><i>".$teamname."</i></b>";
 
-               $scores[$team] = new TeamScore($teamname, $team, $g_pv);
+	       $pv = $contest->pvalues;
+	       if (empty($pv['A'])) {
+		  $pv = $g_pv;
+               }
+               $scores[$team] = new TeamScore($teamname, $team, $pv);
             }
 
             // feed the variables (scores) from above into file

@@ -4,9 +4,9 @@ codesprintla@gmail.com
 17:20 + 05:00
 10;A;on
 Team Round
-Aim Bot                       ;A         ;--        ;8         
-Spam Ping                     ;B         ;A         ;8         
-Volatile Boom Bots            ;C         ;B         ;8         
-Parched Games                 ;D         ;--        ;8         
-Dodging Flyers                ;E         ;D         ;8         
-Catanner                      ;F         ;E         ;8         
+Aim Bot                       ;A         ;--        ;8         ;100       
+Spam Ping                     ;B         ;A         ;8         ;200       
+Volatile Boom Bots            ;C         ;B         ;8         ;300       
+Parched Games                 ;D         ;--        ;8         ;100       
+Dodging Flyers                ;E         ;D         ;8         ;200       
+Catanner                      ;F         ;E         ;8         ;300       

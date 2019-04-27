@@ -43,6 +43,7 @@
 
                $prereq = $_POST["prereq".$i];
                $tlimit = $_POST["tlimit".$i];
+               $pv = $_POST["pv".$i];
                /*
                if ($i == 1){
                    $prereq = "--";    // hardcoded default prereqs, until we add the feature to the front-end
@@ -51,7 +52,7 @@
                    $prereq = implode(",", range('A', chr(ord('A')+$i-2)));
                }
                 */
-               fputs($fp, sprintf("%-30s;%-10s;%-10s;%-10s\n", $name, $url, $prereq, $tlimit));
+               fputs($fp, sprintf("%-30s;%-10s;%-10s;%-10s;%-10s\n", $name, $url, $prereq, $tlimit, $pv));
 
 
                if ($url && $filename)
@@ -359,7 +360,7 @@ END;
 <table class="" style="table-layout: fixed; width: 100%">  <?php // table-responsive" style="overflow:hidden"> ?>
 <thead>
 <tr >
-   <th width="6%">Initial</th>
+   <th width="4%">Init</th>
    <th width="20%">Problem Name</th>
    <th width="8%">URL</th>
    <th width="17%">Statement</th>
@@ -367,6 +368,7 @@ END;
    <th width="17%">Answer (<i>filename</i>.out) </th>
    <th width="10%">Prereq </th>
    <th width="6%">Time</th>
+   <th width="8%">Value</th>
 </tr>
 </head>
 
@@ -379,6 +381,7 @@ END;
       $prereq = trim($line[2]);
       $prereq = $prereq == '' ? '--' : $prereq;
       $tlimit = trim($line[3] ?? '1');
+      $pv = trim($line[4] ?? '0');
 
       if ($i % 2)    print "<tr bgcolor=\"#EDF3FE\">\n";
       else           print "<tr>\n";
@@ -386,7 +389,7 @@ END;
       if ($i == 1)
       {
          $values = array("A", "1");
-         print "   <td>&nbsp;Problem <select name=\"firstletter\">";
+         print "   <td><select name=\"firstletter\">";
          foreach ($values as $value) {
             $sel = ($value == $firstletter) ? "selected=\"selected\"" : "";
             print "<option value=\"$value\" $sel>$value</option>";
@@ -402,6 +405,7 @@ END;
       print "   <td><input style=\"max-width:200px\" class=\"form-control-file\" type=\"file\" name=\"output$i-f\"  /></td>\n";
       print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"prereq$i\" value=\"$prereq\" /></td>\n";
       print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"tlimit$i\" value=\"$tlimit\" /></td>\n";
+      print "   <td align=\"center\"><input type=\"text\" class=\"form-control\" name=\"pv$i\" value=\"$pv\" /></td>\n";
       print "</tr>\n";
    }
 ?>

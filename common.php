@@ -190,6 +190,7 @@
       var $pnames = array();
       var $purls = array();
       var $pprereqs = array();
+      var $pvalues = array();
 
       var $okay;
 
@@ -236,11 +237,14 @@
                $name = "$letter - " . $ptitle;
                $url  = $problempath . trim($line[1]);
                $prereqs = trim($line[2]);
+	       // line[3] for time limit, which is handled by judge.cc
+               $value = intval($line[4]);
 
                $this->pletters[] = $letter;
                $this->pnames[$letter] = $name;
                $this->purls[$letter] = $url;
                $this->pprereqs[$letter] = explode(",", $prereqs);
+               $this->pvalues[$letter] = $value;
 
                ++$letter;
             }

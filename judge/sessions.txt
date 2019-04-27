@@ -1,4 +1,4 @@
-a-star-week-3
+2018Team
 Codesprint 17 team round;Codesprint_team
 Codesprint 17 relay round;Codesprint_relay
 Codesprint 18 Test round;Test
@@ -8,3 +8,5 @@ Codesprint 18 Warmup;2018Warmup
 Project A* 19 Week 3;a-star-week-3
 Project A* 19 Mini Contest Beginner's Track;2019w-mini-contest-beginner
 Project A* 19 Mini Contest Advanced's Track;2019w-mini-contest-advanced
+CodeSprint 2019 Individual;cs2019_i
+CodeSprint 2019 Team;cs2019_t
